@@ -13,7 +13,7 @@ https://www.acmicpc.net/problem/10039
 배열 및 문자열
 
 
-11720 - 숫자의 합
+11720 - 숫자의 합 / claear
 입력된 숫자들의 합을 구하는 간단한 문제입니다. 배열과 반복문을 연습하기에 적합합니다.
 https://www.acmicpc.net/problem/11720
 
