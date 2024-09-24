@@ -13,11 +13,11 @@ https://www.acmicpc.net/problem/10039
 배열 및 문자열
 
 
-11720 - 숫자의 합 / claear
+11720 - 숫자의 합 / clear
 입력된 숫자들의 합을 구하는 간단한 문제입니다. 배열과 반복문을 연습하기에 적합합니다.
 https://www.acmicpc.net/problem/11720
 
-1157 - 단어 공부
+1157 - 단어 공부 / clear
 문자열에서 가장 많이 등장한 문자를 찾는 문제입니다. 문자열 처리와 배열을 이용한 빈도 수 계산 연습에 좋습니다.
 https://www.acmicpc.net/problem/1157
 
