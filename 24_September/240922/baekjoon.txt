@@ -29,7 +29,7 @@ https://www.acmicpc.net/problem/1157
 수학적 사고와 그리디 알고리즘을 적용할 수 있는 문제입니다. 주어진 조건을 만족하는 최소값을 구하는 연습에 적합합니다.
 https://www.acmicpc.net/problem/2839
 
-2581 - 소수
+2581 - 소수 / clear
 주어진 범위에서 소수를 구하는 문제로, 소수 판별 방법을 연습할 수 있습니다.
 https://www.acmicpc.net/problem/2581
 
@@ -37,7 +37,7 @@ https://www.acmicpc.net/problem/2581
 알고리즘 기초
 
 
-1546 - 평균
+1546 - 평균 / clear
 평균 구하는 방법을 응용하는 문제입니다. 배열을 활용하여 값을 변환한 후 평균을 구하는 연습에 좋습니다.
 https://www.acmicpc.net/problem/1546
 
