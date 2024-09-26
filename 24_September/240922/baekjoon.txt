@@ -41,7 +41,7 @@ https://www.acmicpc.net/problem/2581
 평균 구하는 방법을 응용하는 문제입니다. 배열을 활용하여 값을 변환한 후 평균을 구하는 연습에 좋습니다.
 https://www.acmicpc.net/problem/1546
 
-10818 - 최소, 최대
+10818 - 최소, 최대 / clear
 주어진 숫자들에서 최소값과 최대값을 찾는 문제입니다. 반복문을 통해 배열에서 최소와 최대를 찾아보는 연습이 가능합니다.
 https://www.acmicpc.net/problem/10818
 
