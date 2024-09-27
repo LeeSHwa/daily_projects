@@ -24,19 +24,16 @@
 
 croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 
-words = 'z=z='
+words = input()
 
-words_length = len(words)
+for word in croatia:
+    words = words.replace(word,"*")
 
-for i in range(len(croatia)):
-    if croatia[i] in words:
-        words_length -= 1
-    elif croatia[2] in words:
-        words_length -= 2
-    else:
-        pass
+print(len(words))
 
-print(words_length)
+
+
+
 # for i in croatia:
 #     if i in words:
 #         print(i)
