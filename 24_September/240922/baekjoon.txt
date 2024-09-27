@@ -25,7 +25,7 @@ https://www.acmicpc.net/problem/1157
 수학적 사고력
 
 
-2839 - 설탕 배달 / skip
+2839 - 설탕 배달 / I could't solve this then i used GPT _ 240924
 수학적 사고와 그리디 알고리즘을 적용할 수 있는 문제입니다. 주어진 조건을 만족하는 최소값을 구하는 연습에 적합합니다.
 https://www.acmicpc.net/problem/2839
 
@@ -53,7 +53,7 @@ https://www.acmicpc.net/problem/1978
 도전해볼 만한 문제 (난이도 상승)
 
 
-2941 - 크로아티아 알파벳
+2941 - 크로아티아 알파벳 / I could't solve this then i used GPT _ 240928
 문자열 처리의 조금 더 어려운 문제입니다. 주어진 조건을 어떻게 처리할지 고민해봐야 합니다.
 https://www.acmicpc.net/problem/2941
 
