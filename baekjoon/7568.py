@@ -18,19 +18,18 @@
 # 여러분은 입력에 나열된 사람의 덩치 등수를 구해서 그 순서대로 첫 줄에 출력해야 한다. 단, 각 덩치 등수는 공백문자로 분리되어야 한다.
 
 N = int(input())
-W_H = []
+WH = []
 
 for i in range(N):
     temp = list(map(int,input().split(" ")))
-    W_H.append(temp)
+    WH.append(temp)
 
-for i in range(N-1):
-    K = N
-    if W_H[i][0] >= W_H[i+1][0]:
-        if W_H[i][0] >= W_H[i+1][1]:
-            K -= 1
-        else:
-            continue
-    else:
-        continue
-    print(K,end=' ')
+for i in range(N):
+    K = 0
+    cnt = 1
+    while K < N:
+        if WH[i][0] < WH[K][0] and WH[i][1] < WH[K][1]:
+            cnt += 1
+        else: pass 
+        K += 1
+    print(cnt, end=" ")
