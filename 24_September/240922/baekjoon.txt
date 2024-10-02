@@ -57,7 +57,7 @@ https://www.acmicpc.net/problem/1978
 문자열 처리의 조금 더 어려운 문제입니다. 주어진 조건을 어떻게 처리할지 고민해봐야 합니다.
 https://www.acmicpc.net/problem/2941
 
-7568 - 덩치
+7568 - 덩치 / clear
 2차원 배열과 조건문을 활용하여, 덩치 등수를 매기는 문제입니다. 2차원 배열을 다루는 연습에 적합합니다.
 https://www.acmicpc.net/problem/7568
 
