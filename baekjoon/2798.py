@@ -21,11 +21,17 @@ temp = list(map(int,input().split(" ")))
 N = temp[0]
 M = temp[1]
 
+ans = []
+
 cards = list(map(int,input().split(" ")))
 
 Sort_Cards = sorted(cards)
 
-print(Sort_Cards)
+for i in range(N-2):
+    for j in range(i+1, N-1):
+        for k in range(j+1, N):
+            temp = Sort_Cards[i] + Sort_Cards[j] + Sort_Cards[k]
+            if temp <= M:
+                ans.append(temp)
 
-for i in range(N-1):
-    
+print(max(ans))
