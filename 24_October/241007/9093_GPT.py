@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/9093
-# 슬라이싱
+# slicing, join 숙지
 
 T = int(input())
 
