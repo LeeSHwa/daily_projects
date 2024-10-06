@@ -19,8 +19,15 @@ for i in range(T):
 
 for i in range(T):
     temp = sentence[i].split()
-    tmp.append[temp]
+    word_list = [[char for char in word] for word in temp]
+    tmp.append(word_list)
 
+for i in range(T):
+    for j in range(len(tmp[i])):
+        for k in range(len(tmp[i][j])-1,-1,-1):
+            print(tmp[i][j][k], end="")
+        print(" ",end="")
+    print()
 
 # for i in range(T):
 #     for j in range(len(sentence[i])-1,-1,-1):
