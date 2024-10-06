@@ -5,26 +5,29 @@ def Is_Queue_Full():
 
     if rear == Size -1 :
         return True
-    else: False
+    else: return False
         
 
 def Enqueue(word):
     global Size, front, rear, queue
-    if Is_Queue_Full() == True:
+    if Is_Queue_Full() == True: # == True 굳이 안써도 됨
         return print("꽉차서 안됑")
     else:
-        rear += 1
-        queue[rear] = word
+        if rear == -1:
+            rear, front = 0, 0
+        else:
+            rear += 1
+            queue[rear] = word
 
 def Is_Empty_Queue():
     global Size, front, rear, queue
     if front and rear == -1:
         return True
-    else: False
+    else: return False
 
 def Dequeue():
     global Size, front, rear, queue
-    if Is_Empty_Queue() == True:
+    if Is_Empty_Queue() == True: # == True 굳이 안써도 됨
         return print("얜 비어서 안됑")
     else:
         front += 1
