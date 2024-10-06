@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/9093
+# 슬라이싱
 
 T = int(input())
 
