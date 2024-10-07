@@ -3,13 +3,10 @@
 시험 성적에 따라 등급을 출력하는 문제로, 조건문을 연습하기에 좋습니다.
 https://www.acmicpc.net/problem/9498
 
-2439 - 별 찍기 - 2 / Bronze 4
+2439 - 별 찍기 - 2 / Bronze 4 / clear
 별을 오른쪽 정렬로 출력하는 문제로, 반복문과 출력 형식에 대한 연습에 적합합니다.
 https://www.acmicpc.net/problem/2439
 
-10950 - A+B - 3 / Bronze 5
-여러 개의 테스트 케이스를 받아서 반복적으로 덧셈을 수행하는 문제입니다.
-https://www.acmicpc.net/problem/10950
 
 배열 및 문자열
 10809 - 알파벳 찾기 / Bronze 2
