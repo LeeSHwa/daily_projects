@@ -21,6 +21,8 @@ def Enqueue(word):
     else: 
         rear = (rear + 1) % SIZE
         queue[rear] = word
+        print(word, "is enqueued")
+        print('->',queue)
     
 def Dequeue():
     global SIZE, queue, rear, front
@@ -42,6 +44,7 @@ Enqueue("Fourth")
 Enqueue("Fourth")
 
 Dequeue()
+Enqueue("dumb")
 Dequeue()
 Dequeue()
 
@@ -52,6 +55,3 @@ Enqueue("Seventh")
 Dequeue()
 
 Enqueue("Eighth")
-
-
-print(queue)
