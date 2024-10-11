@@ -18,3 +18,17 @@
 
 # 출력
 # 프로그램은 표준 출력에 출력한다. 각 테스트 데이터마다 정확히 한 행을 출력하는데, 내용은 N 번째 손님에게 배정되어야 하는 방 번호를 출력한다.
+def Floor(Height, Width, N):
+    print(N % Height,end="")
+    if Width < 10:
+        print("0",end="")
+        print(Width%N)
+    else:
+        print(Width%N)
+
+T = int(input())
+for i in range(T):
+    H, W, N = map(int,input().split())
+    Floor(H,W,N)
+
+  
