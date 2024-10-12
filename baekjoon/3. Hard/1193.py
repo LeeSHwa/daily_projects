@@ -17,29 +17,16 @@
 # 출력
 # 첫째 줄에 분수를 출력한다.
 
-li = []
+n = n_sum = 0
+X = int(input())
 
-N = int(input())
-X = N - 1
+while X > n_sum:
+    n += 1
+    n_sum += n
 
-for i in range(1,X+1):
-    temp = i
-    while i != 0:
-        li.append(temp) # 리스트는 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, ... ]
-        i-=1 
+gap = n_sum - X
 
-if X == 1: 
-    print("1/1")
-else:
-    # A = li[li.index(li[X])] # 리스트에서 X번 째 위치에 있는 그 수를 찾고, 그 수의 리스트 상 인덱스가 가리키는 수가 A
-    # print("A ->", A)
-    # B = li.index(A)
-    # print("B ->", B)
-
-    A = li[X]
-    B = li.index(A)
-
-    index = X - B + 1# 인덱스는 이제 
-    print("index ->", index)
-
-    print(f"{index}/{A-index + 1}")
+if n % 2 == 0:
+    print(f"{n-gap}/{gap+1}")
+else:  
+    print(f"{gap+1}/{n-gap}")
