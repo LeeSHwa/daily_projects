@@ -17,7 +17,7 @@ def find_constructor(N):
     # if int(N) < 10: # 아니 근데 왜 이게 통과가 안되는거지??? 틀린게 없는 것 같은데 허 참
     #     init_v = 0
     
-    init_v = 0 # 
+    init_v = 0 # 이건 무조건 되지만 효율성이 개박살이잖아
     
     for i in range(init_v, int(N)+1): # init_v 부터 N 까지 분해합을 구함
         temp_digit = [int(n) for n in str(i)] # i의 자리수마다 temp_digit 리스트에 저장
