@@ -7,14 +7,20 @@
 # 출력
 # 첫째 줄에 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력한다.
 
-N = input()
-temp = 0
+N = int(input())
 cnt = 0
 
-while temp < int(N):
-    li = [int(ch) for ch in temp]
+for ch in range(1,N+1):
+    li = [int(ch) for ch in str(ch)]
     
     if len(li) == 1 or len(li) == 2:
         cnt +=1
+    
+    elif N == 1000:
+        N = 999
+        
+    elif (li[0] - li[1]) == (li[1] - li[2]):
+        cnt += 1
+    else: pass
 
 print(cnt)
