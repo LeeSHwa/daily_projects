@@ -10,8 +10,25 @@
 출력
 첫째 줄에 그룹 단어의 개수를 출력한다.
 '''
-def find_group():
+
+cnt = 0
+
+def find_group(word):
+    global cnt
     
+    temp = list(word)
+    
+    for i in range(len(temp) - 1):
+        if temp[i] == temp[i+1]:
+            temp[i] = None
+        
+    while None in temp:
+        temp.remove(None)
+
+    if len(temp) == len(set(list(word))):
+        cnt += 1
+
+
 
 N = int(input())
 words = []
@@ -19,4 +36,7 @@ words = []
 for i in range(N):
     words.append(input())
 
-print(words[1][1])
+for word in words:
+    find_group(word)
+
+print(cnt)
