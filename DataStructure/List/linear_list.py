@@ -12,12 +12,12 @@ def add_data(word):
 
 def insert_data(word, position):
 
+    linear_list.append(None)
     end = len(linear_list) - 1
 
     if position >= end:
         raise ValueError("It's impossible because the position exceeds the length of the list.")
     
-    linear_list.append(None)
     
     for i in range(end,position,-1):
         linear_list[i] = linear_list[i-1]
@@ -25,12 +25,29 @@ def insert_data(word, position):
 
     linear_list[position] = word
         
+def delete_data(position):
 
+    end = len(linear_list) - 1
+
+    if position >= end:
+        raise ValueError("It's impossible because the position exceeds the length of the list.")
+    
+    linear_list[position] = None
+    
+    for i in range(position + 1, end + 1):
+        linear_list[i-1] = linear_list[i]
+        linear_list[i] = None
+    
+    del(linear_list[end])
 
 print(linear_list)
 
 insert_data("1번",1)
-insert_data("2번",2)
+
+print(linear_list)
+
+delete_data(1)
+delete_data(2)
 
 print(linear_list)
 
