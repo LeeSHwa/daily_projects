@@ -23,16 +23,15 @@ dict_words = {word:len(word) for word in words} # { : } 형태가 dictionary 그
 
 sorted_words = dict(sorted(dict_words.items(),key = lambda x : x[1])) # items() -> (키, 값)인 튜플 형태로 변환 / key -> 어떤 걸 기준으로 할 것인지
 
-print(sorted_words)
-
 list_keys = list(sorted_words.keys())
+set_values = list(sorted(set(sorted_words.values())))
 
-print(list_keys)
 
-for i in range(N):
-    
-    while j != N+1:
-        tem = len(list_keys[1])
-
-        if len(list_keys[1]) == tem:     
-            j+=1
+for i in set_values:
+    temp = []
+    for j in list_keys:
+        if len(j) == i:
+            temp.append(j)
+            temp.sort()
+    for k in temp:
+        print(k)
