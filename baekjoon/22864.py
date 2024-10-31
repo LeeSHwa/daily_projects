@@ -17,10 +17,15 @@ A,B,C,M이 공백으로 구분되어 주어진다.
 출력
 하루에 번 아웃이 되지 않도록 일을 할 때 최대 얼마나 많은 일을 할 수 있는지 출력한다.'''
 
-A, B, C, M = list(input().split())
+A, B, C, M = list(map(int,input().split()))
 
-print(A, B, C, M)
+def temp(A, B, C, M):
+    
+    if A > M:
+        return print(0)
 
-if A > M:
-    print(0)
+    x = ( M + 24 * C) // (A + C)
+    return print(x * B)
 
+
+temp(A, B, C, M)
