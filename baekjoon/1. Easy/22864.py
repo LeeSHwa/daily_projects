@@ -17,15 +17,33 @@ A,B,C,M이 공백으로 구분되어 주어진다.
 출력
 하루에 번 아웃이 되지 않도록 일을 할 때 최대 얼마나 많은 일을 할 수 있는지 출력한다.'''
 
+# def temp(A, B, C, M):
+    
+#     if A > M:
+#         return print(0)
+
+#     x = ( M + 24 * C) // (A + C)
+#     return print(x * B)
+
 A, B, C, M = list(map(int,input().split()))
 
-def temp(A, B, C, M):
-    
+time = 0
+work = 0
+fatigue = 0
+
+while time < 24:
     if A > M:
-        return print(0)
+        break
 
-    x = ( M + 24 * C) // (A + C)
-    return print(x * B)
+    if fatigue <= 0:
+        fatigue = 0
+    
+    if fatigue + A <= M:
+        fatigue += A
+        work += B
+        time += 1
+    else:
+        fatigue -= C
+        time +=1
 
-
-temp(A, B, C, M)
+print(work)
