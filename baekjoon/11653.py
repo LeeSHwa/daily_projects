@@ -13,8 +13,8 @@ def findPrimeNumber(N):
         return
     
     primeNumber = []
-    
-    for i in range(2, N+1):
+    K = N
+    for i in range(2, N):
         is_prime = True
         
         for j in range(2, int(i**0.5) + 1):
@@ -22,15 +22,18 @@ def findPrimeNumber(N):
                 is_prime = False
                 break
         if is_prime:
-            primeNumber.append(i)
-    
-    return primeNumber
+            while K % i == 0:
+                print(i)
+                K /= i
+                
+                if K == 1:
+                    break
 
-divider = findPrimeNumber(N)
+findPrimeNumber(N)
 
-while N != 1:
-    for i in divider:
-        while N % i == 0:
-            print(i)
-            N /= i
+# while N != 1:
+#     for i in divider:
+#         while N % i == 0:
+#             print(i)
+#             N /= i
     
