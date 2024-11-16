@@ -9,7 +9,7 @@
 출력
 첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소 공배수를 출력한다.'''
 
-A, B = sorted(list(map(int,input().split())))
+A, B = list(map(int,input().split()))
 
 def find_a_GCD(A, B):
     while A % B != 0:
