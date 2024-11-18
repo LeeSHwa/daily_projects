@@ -23,13 +23,40 @@ N개의 수가 주어졌을 때, 정수 하나를 빼서 만들 수 있는 가�
 
 만약 정답이 없는 경우에는 -1을 출력한다.'''
 
-# 일단 모든 수를 입력받은 후 오름차순으로 정렬하는게 시행 횟수를 줄일 수 있을 것 같음
-# 
 N = int(input())
+GCD = {}
 
-numbers = sorted(list(map(int,input().split())))
+numbers = list(map(int,input().split()))
 
 if len(numbers) != N:
     raise ValueError("The length of the list does not match N")
 
-print(numbers)
+for i in range(len(numbers)):
+    K = numbers.pop(i)
+    
+    temp = numbers[:]
+
+    while len(temp) != 1:
+        a, b = temp[0], temp[1]
+
+        while a % b != 0:
+            a,b = b, a%b
+
+        del(temp[0])
+        temp[0] = b
+
+    if K % b == 0:
+        GCD[K] = -1
+    else:
+        GCD[K] = b
+
+    numbers.append(K)
+
+
+ans = sorted(GCD.items(),key=lambda x : x[1])
+
+print(ans[N-1][1],end=" ")
+if ans[N-1][1] == -1:
+    pass
+else:
+    print(ans[N-1][0])
