@@ -50,6 +50,3 @@ delete_data(1)
 delete_data(2)
 
 print(linear_list)
-
-print(1)
-    
