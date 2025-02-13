@@ -25,7 +25,7 @@ alphabet = { # 그냥 하나하나 다 등록해버려
 
 
 for i in range(0,L):
-    hap += alphabet.get(word.pop(0))*r**i%M
+    hap += (alphabet.get(word.pop(0))%M)*(r**i%M)%M
 
-print(hap)
+print(hap%M)
 
