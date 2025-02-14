@@ -1,5 +1,9 @@
-A = [0, 12, 124, 152]
+temp = [1, 2, 3, 4, 5]
 
-B = A.pop(0)
+temp.append(sum(temp[:len(temp)]))
+temp.append(sum(temp[:len(temp)]))
+temp.append(sum(temp[:len(temp)]))
 
-print (A, B)
+
+
+print(temp)
