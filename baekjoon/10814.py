@@ -7,7 +7,10 @@ for i in range(N):
     key, value = input().split()
     di[key] = value
 
-ans = sorted(di)
+def sort_di(di):
+    while f
+
+
 
 for key, value in di.items():
     print(f"{key} {value}")
