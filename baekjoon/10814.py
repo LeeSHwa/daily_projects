@@ -7,8 +7,8 @@ for i in range(N):
     key, value = input().split()
     di[key] = value
 
-def sort_di(di):
-    while f
+# def sort_di(di):
+    # while f
 
 
 
