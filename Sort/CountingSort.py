@@ -1,4 +1,3 @@
-
 def bing(max_value, li): # counting sort / max_value = 최대 값, li = 리스트
     counting = [0 for _ in range(max_value)]
     
@@ -6,8 +5,6 @@ def bing(max_value, li): # counting sort / max_value = 최대 값, li = 리스�
         counting[li[i]] += 1
     
     return counting
-
-
 
 ans_li = bing(30, [0, 28, 25, 15, 2, 12, 17, 11, 29, 29, 29])
 
