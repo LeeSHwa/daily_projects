@@ -1,23 +1,22 @@
+N, M = map(int, input().split())
+matrix = [list(input().strip()) for _ in range(N)]
 
-def bing(max_value, li): # counting sort / max_value = 최대 값, li = 리스트
-    counting = [0 for _ in range(max_value)]
-    
-    for i in range(len(li)):
-        counting[li[i]] += 1
-    
-    return counting
+B_start = [[ 'B' if (i+j)%2 ==0 else 'W' for j in range(8)] for i in range(8)]
+W_start = [[ 'W' if (i+j)%2 ==0 else 'B' for j in range(8)] for i in range(8)]
 
+min_cnt = float('inf')
 
+for i in range(N-7):  # 수정된 반복문 범위
+    for j in range(M-7):
+        cnt_b = 0
+        cnt_w = 0
+        for a in range(8):  # a: 패턴 행 인덱스
+            for b in range(8):  # b: 패턴 열 인덱스
+                current = matrix[i+a][j+b]
+                if current != B_start[a][b]:
+                    cnt_b += 1
+                if current != W_start[a][b]:
+                    cnt_w += 1
+        min_cnt = min(min_cnt, cnt_b, cnt_w)
 
-ans_li = bing(30, [0, 28, 25, 15, 2, 12, 17, 11, 29, 29, 29])
-
-print(ans_li)
-
-temp = []
-for i in range(len(ans_li)):
-    if ans_li[i] != 0:
-        for _ in range(ans_li[i]):
-            temp.append(i)
-    else:
-        pass
-print(temp)
+print(min_cnt)
