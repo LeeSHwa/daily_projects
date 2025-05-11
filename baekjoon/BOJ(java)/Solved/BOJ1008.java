@@ -1,3 +1,4 @@
+package Solved;
 // https://www.acmicpc.net/problem/1008
 import java.util.Scanner;
 
