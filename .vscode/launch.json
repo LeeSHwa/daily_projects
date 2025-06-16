@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BOJ9046",
+      "request": "launch",
+      "mainClass": "BOJ9046",
+      "projectName": "daily_projects_89ff1898"
+    },
+    {
+      "type": "java",
+      "name": "BOJ11720",
+      "request": "launch",
+      "mainClass": "Solved.BOJ11720",
+      "projectName": "daily_projects_89ff1898"
+    },
+    {
+      "type": "java",
       "name": "BOJ11382",
       "request": "launch",
       "mainClass": "BOJ11382",
