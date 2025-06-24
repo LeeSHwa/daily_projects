@@ -20,7 +20,10 @@ for i in range(n):
 
 points = sorted(points, key=lambda x : (x[0], x[1]))
 
-for i in range(n):
-    for j in range(2):
-        print(points[i][j], end=' ')
-    print()
+# for i in range(n):
+#     for j in range(2):
+#         print(points[i][j], end=' ')
+#     print()
+
+for x, y in points:
+    print(x, y)
