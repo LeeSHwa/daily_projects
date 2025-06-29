@@ -39,20 +39,28 @@ NO
 
 '''
 
-# vps 여부를 어떻게 확인하지?
-# ( 로 시작한 후 )가 있는지 확인
-# 확인 후 두 캐릭터를 삭제? 팝?
-# 그렇게 해서 결국 length가 0이면 YES?
-# index를 어떻게 관리해야하지?
-
-# dictionary로 관리해야하나?? )인 경우에만 1로?
-# 만약 ) 중에서 0이 아니면 NO?
-
+# stack를 이용해서
+# ( 발견시 stack에 추가
+# 
 
 T = int(input())
 
 for i in range(T):
-    line = input()
-    for idx in len(line):
-        if line[idx] == '(':
-                
+    stack = []
+    is_valid = True
+
+    line = input().strip()
+    for char in line:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if stack:
+                stack.pop()
+            else: 
+                is_valid = False
+                break
+
+    if stack or is_valid == False:
+        print("NO")
+    else:
+        print("YES")
