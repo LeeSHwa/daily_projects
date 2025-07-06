@@ -39,13 +39,14 @@ T = int(input())
 for _ in range(T):
     dict_queue = {}
 
-    N, M = map(int, input().split())
-    priority = list(map(int, input().split()))
+    N, M = map(int, input().split()) # 4 *2*
+    priority = list(map(int, input().split())) # 1 2 *3* 4
     
     for i in range(len(priority)):
-        dict_queue[i] = priority[i]
+        dict_queue[i] = priority[i] # {0: 1, 1: 2, 2: 3, 3: 4}
 
-    for j in range(len(priority)):
-        if dict_queue[j] < max(dict_queue.keys()):
-            
-        
+    # for j in range(len(priority)):
+    #     if dict_queue[j] < max(dict_queue.keys()):
+
+    for key, value in dict_queue.items():
+    
