@@ -32,9 +32,9 @@
 2
 5
 '''
+from collections import deque
 
 T = int(input())
-
 
 for _ in range(T):
     dict_queue = {}
@@ -45,8 +45,18 @@ for _ in range(T):
     for i in range(len(priority)):
         dict_queue[i] = priority[i] # {0: 1, 1: 2, 2: 3, 3: 4}
 
-    # for j in range(len(priority)):
-    #     if dict_queue[j] < max(dict_queue.keys()):
+    queue = deque(dict_queue.items())
 
-    for key, value in dict_queue.items():
-    
+    cnt = 1
+    while queue:
+        idx, priority = queue[0]
+
+        if priority < max(p for _, p in queue):
+            queue.rotate(-1) # 맨 앞 요소를 맨 뒤로 이동
+        else:
+            if(idx == M):
+                print(cnt)
+                break
+
+            queue.popleft()
+            cnt += 1
