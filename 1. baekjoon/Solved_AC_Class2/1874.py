@@ -50,9 +50,44 @@
 
 # 가장 높은 숫자에 도달했을 때 부턴 숫자가 내려갈 수 밖에 없음
 # 또한 4 -> 3 -> 다음으로 1, 2 이런식으로는 안됨. 4 -> 2 -> 3 이런식도 안되는데?? 무조건 인접한 수만 출력이 가능하네 3 -> 1은 불가능
+
+# 4, 3, 6, 8, 7, 5, 2, 1
+# 위치에 따라 push 및 pop의 횟수를 출력?
+# 1부터 n까지 들어가니까 일단 4를 출력하려면 push * 4, pop * 1
+# 그 이후 stack에는 1, 2, 3이 들어가있을건데 바로 3을 출력하니까 pop * 1
+# 그 이후 6은 stack에 없으니까 stack에 6이 있을 때 까지 push * 2, pop * 1
+# 8 또한 마찬가지로 push * 2, pop * 1
+# 8까지 왔으면 앞으로는 pop밖에 없음 ~ 
+
+# 안되는 조건은 어떻게 찾아야 하지?
+# 일단 그냥 구현해보자
+import sys
+
+input = sys.stdin.readline
+
 n = int(input())
 
-ans_stack = []
-for _ in range(n):
-    ans_stack.append(int(input()))
+answers = []
+stack = []
 
+print_ans = []
+
+push_num = 1
+
+for _ in range(n):
+    answers.append(int(input()))
+
+for search in answers:
+    while push_num <= search:
+        stack.append(push_num)
+        print_ans.append("+")
+        push_num += 1
+    
+    if stack[-1] == search:
+        stack.pop()
+        print_ans.append("-")
+    else:
+        print("NO")
+        exit()
+
+print('\n'.join(print_ans))
