@@ -17,13 +17,24 @@ N과 M은 1보다 크거나 같고, 100,000보다 작거나 같은 자연수인�
 첫째 줄부터 차례대로 M개의 줄에 각각의 문제에 대한 답을 말해줬으면 좋겠어!!!. 입력으로 숫자가 들어왔다면 그 숫자에 해당하는 포켓몬의 이름을, 문자가 들어왔으면 그 포켓몬의 이름에 해당하는 번호를 출력하면 돼. 그럼 땡큐~
 
 '''
+import sys
+input = sys.stdin.readline
+
 N, M = map(int, input().split())
 
 names = []
-
 for _ in range(N):
-    names.append(input())
+    names.append(input().strip())
 
-poketmon = [(No, name) for No, name in enumerate(names, start=1)]
+# poketmon = dict([(No, name) for No, name in enumerate(names, start=1)])
 
-print(poketmon)
+name_to_num = {name : str(Num + 1) for Num, name  in enumerate(names)}
+num_to_name = {str(Num + 1) : name for Num, name in enumerate(names)}
+
+for _ in range(M):
+    question = input().strip()
+
+    if question[0].isdigit():
+        print(num_to_name[question])
+    else:
+        print(name_to_num[question])
