@@ -26,6 +26,25 @@ clinton
 baesangwook
 ohhenrie
 '''
+import sys
+input = sys.stdin.readline
+
+who_are_you = set()
+ans = []
 
 N, M = map(int, input().split())
 
+for _ in range(N):
+    not_heard = input().strip()
+    who_are_you.add(not_heard)
+
+for _ in range(M):
+    not_seen = input().strip()
+    
+    if not_seen in who_are_you:
+        ans.append(not_seen)
+    
+ans.sort()
+
+print(len(ans))
+print('\n'.join(ans))
