@@ -24,19 +24,34 @@ X가 2로 나누어 떨어지면, 2로 나눈다.
 예제 출력 2 
 3
 '''
-
 N = int(input())
 
-count = 0
-while N != 1:
-    if N % 3 == 0:
-        N /= 3
-        count += 1
-    elif N % 2 == 0:
-        N /= 2
-        count += 1
-    else: 
-        N -= 1
-        count += 1
+dp = [0] * (N + 1) # dp[0] ~ d[N] 까지 모두 초기화
 
-print(count)
+for i in range(2, N + 1):
+    dp[i] = dp[i-1] + 1 # -1은 항상 가능하기 때문에 먼저 선언함
+    if i % 2 == 0:
+        dp[i] = min(dp[i], dp[i // 2] + 1) # 그래야 여기서 dp[i]를 비교할 때 문제가 없거든
+    if i % 3 == 0:
+        dp[i] = min(dp[i], dp[i // 3] + 1) # 두 번째/세 번째 연산은 바뀌어도 상관 없음(어짜피 min값으로 갱신이 계속 되기 때문)
+
+print(dp[i])
+
+# count = 0
+# while N != 1:
+#     if N % 3 == 0:
+#         N /= 3
+#         count += 1
+#     elif N % 2 == 0:
+#         if (N - 1) % 3 == 0 and  (N - 1) % 5 != 0:
+#             count += 2
+#             N = (N - 1) / 3
+#             continue
+#         N /= 2
+#         count += 1
+#     else: 
+#         N -= 1
+#         count += 1
+
+# print(count)
+
