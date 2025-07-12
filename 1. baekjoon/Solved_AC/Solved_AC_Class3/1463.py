@@ -35,7 +35,7 @@ for i in range(2, N + 1):
     if i % 3 == 0:
         dp[i] = min(dp[i], dp[i // 3] + 1) # 두 번째/세 번째 연산은 바뀌어도 상관 없음(어짜피 min값으로 갱신이 계속 되기 때문)
 
-print(dp[i])
+print(dp[N])
 
 # count = 0
 # while N != 1:
