@@ -31,33 +31,34 @@
 출력
 첫째 줄에 계단 오르기 게임에서 얻을 수 있는 총 점수의 최댓값을 출력한다.
 '''
-# 가장 원칙이 되는 법칙을 찾아야 함
-# 세 개의 계단이 연속적일 순 없음
-# 끝은 무조건 포함해야함
-# 그렇다면 N-1 번째는 항상 포함하고, N-3 / N-2 중 무조건 한 개만 선택되어야 함
-# flag를 어떻게 세워야 할까?
-# cursor역할을 해 줄 current 등의 변수도 활용하면 좋을 것 같은데
-# next도 추가시켜서 현재 index에 따라 조건을 만들어서 시작과 끝 부분만 예외처리한 가장 보편적인 법칙을 적용시켜야 하나?
-# 만약 next가 current보다 1만 크다면 
-# 잠시만
-# 이것도 max를 잘 써야하는거 아닐까?
-# 항상 current를 가장 마지막 계단으로 생각해야 하지 않을까?
-# 그러다가 추후 더 큰 값이 주워지게 된다면 이전 결과값과 비교하여 max연산으로 처리하면 될 것 같은데
-# DP의 핵심은 잘게 나누어 저장한 뒤 활용하는 방식인 것 같음
-# 점화식을 세워야 함 ex) 피보나치 수열
-# 그를 위해 초기값들에 대해 하드코딩을 하든 뭔갈 해야함 (인덱스 에러 방지)
+# 점화식을 세우기 위해 초기값인 0 ~ 2까지는 직접 계산해야함
+# 그 이후는 점화식을 통해 해결
+# 본래라면 is_sequence 같은 flag로 하나하나 따지면 했을테지만
+# 애초에 그럴 걱정이 없게끔 설계하면 됨
 
 import sys
 input = sys.stdin.readline
 
 N = int(input())
 
-current = 0
-score = 0
-
-is_sequence = False
-
 stair = []
+dp = [0] * N
 
 for _ in range(N):
     stair.append(int(input()))
+
+if N == 1:
+    print(stair[0])
+    exit()
+    
+dp[0] = stair[0]
+dp[1] = stair[0] + stair[1]
+
+if N > 2:
+    dp[2] = max(stair[0] + stair[2], stair[1] + stair[2])
+
+for i in range(3, N):
+    dp[i] = max(dp[i-2] + stair[i],
+                dp[i-3] + stair[i-1] + stair[i])
+
+print(dp[N-1])
