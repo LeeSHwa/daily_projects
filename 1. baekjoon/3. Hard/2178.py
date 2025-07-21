@@ -27,12 +27,47 @@ N×M크기의 배열로 표현되는 미로가 있다.
 예제 출력 1 
 15
 '''
+from collections import deque
 
 N, M = map(int, input().split())
-
 maze = []
+
+queue = deque()
 
 for i in range(N):
     maze.append([int(x) for x in input().strip()])
 
-print(maze)
+    
+# 상하좌우
+# dirs = [(-1,0), (1,0), (0,-1), (0,1)]
+
+queue.append((0,0))
+
+while queue:
+
+    # x, y = queue.popleft()
+    # for dx, dy in dirs:
+    #     nx, ny = x+dx, y+dy 
+    #     if 0 <= nx < N and 0 <= ny < M and maze[nx][ny] == 1:
+    #         maze[nx][ny] = maze[x][y] + 1
+    #         queue.append((nx, ny))
+
+    a, b = queue.popleft()
+    
+    if 0 <= a < N and 0 <= (b+1) < M and maze[a][b+1] == 1:
+        maze[a][b+1] = maze[a][b] + 1
+        queue.append((a, b+1))
+
+    if 0 <= (a+1) < N and 0 <= b < M and maze[a+1][b] == 1 :
+        maze[a+1][b] = maze[a][b] + 1
+        queue.append((a+1, b))
+    
+    if 0 <= a < N and 0 <= (b-1) < M and maze[a][b-1] == 1 :
+        maze[a][b-1] = maze[a][b] + 1
+        queue.append((a, b-1))
+
+    if 0 <= (a-1) < N and 0 <= b < M and maze[a-1][b] == 1 :
+        maze[a-1][b] = maze[a][b] + 1
+        queue.append((a-1, b))
+
+print(maze[N-1][M-1])
