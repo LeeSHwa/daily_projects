@@ -29,16 +29,22 @@ makeup face
 5
 3
 '''
+
 from collections import defaultdict
 
-n = int(input())
+n = int(input()) # 테스트 케이스 개수
 
 for _ in range(n):
-    k = int(input())
-    clothes = defaultdict(list)
+    ans = 1 # 나중에 곱하려고 1로 지정
+    k = int(input()) # 의상의 개수
+    clothes = defaultdict(list) # key : 종류 / value : 종류별 옷
     
     for _ in range(k):
-        value, key = input().split()
-        clothes[key].append(value)
+        value, key = input().split() # 옷, 종류 입력받고
+        clothes[key].append(value) # 종류에 따라 옷들을 리스트로 정리
         
-    # values = clothes.values()
+    len_list = [len(x) for x in clothes.values()] # value 값에 따라 
+    for cnt in len_list:
+        ans *= (cnt + 1)
+
+    print(ans - 1)
