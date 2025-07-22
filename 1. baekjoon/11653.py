@@ -9,18 +9,15 @@ N의 소인수분해 결과를 한 줄에 하나씩 오름차순으로 출력한
 N = int(input())
 
 def findPrimeNumber(N):
+
     if N == 1:
         return
     
-    primeNumber = []
-    K = N
+    primeNumber = set(range(1, N+1))
+
     for i in range(2, N):
         is_prime = True
-        
-        for j in range(2, int(i**0.5) + 1):
-            if i % j == 0:
-                is_prime = False
-                break
+
         if is_prime:
             while K % i == 0:
                 print(i)
@@ -36,4 +33,3 @@ findPrimeNumber(N)
 #         while N % i == 0:
 #             print(i)
 #             N /= i
-    
