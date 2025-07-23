@@ -34,15 +34,15 @@ nums = list(map(int, input().strip().split()))
 
 max_num = max(nums)
 
-array = [0] * N
-array[0] = nums[0]
+array = [0] * (N+1)
+array[0] = 0
 
-for i in range(len(nums)):
-    array[i] = array[i-1] + nums[i]
+for i in range(1, len(nums) + 1):
+    array[i] = array[i-1] + nums[i-1]
 
 
 for _ in range(M):
     a, b = map(int, input().split())
 
-    ans = array[b-1] - array[a-1]
+    ans = array[b] - array[a-1]
     print(ans)
