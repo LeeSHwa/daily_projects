@@ -17,18 +17,14 @@
 예제 출력 1 
 1
 '''
+import math
 
 n = int(input())
-cnt = 0
 
-while cnt != 4:
-    first = n ** 0.5
-    extra = n - int(first)**2
-    cnt += 1
+fourSquares = [0] * (n+1)
 
-    if extra == 0:
-        break
+for i in range(1, int(math.sqrt(n))+1):
+    fourSquares[i*i] = 1
 
-    n = extra
-
-print(cnt)
+    for j in range(i, i*i + 1):
+        fourSquares[i] = fourSquares[j]
