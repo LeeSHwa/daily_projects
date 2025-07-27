@@ -27,9 +27,16 @@ for i in range(1, int(math.sqrt(n))+1):
     fourSquares[i*i] = 1
 
 for i in range(1, n+1):
-    fourSquares[i] = fourSquares[i-1] + 1
-    for j in range(1, int(math.sqrt(i))):
-        fourSquares[i] = min(fourSquares[i], fourSquares[i - j**2] + 1)
-    
-print(fourSquares[n])
+    if fourSquares[i] != 0:
+        continue
 
+    j = 1
+
+    while j*j <= i:
+        if fourSquares[i] == 0:
+            fourSquares[i] = fourSquares[j*j] + fourSquares[i - j*j]
+        else:
+            fourSquares[i] = min(fourSquares[i], fourSquares[j*j] + fourSquares[i - j*j])
+        j += 1
+
+print(fourSquares[n])
