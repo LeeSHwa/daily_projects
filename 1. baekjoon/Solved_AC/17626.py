@@ -21,22 +21,21 @@ import math
 
 n = int(input())
 
-fourSquares = [0] * (n+1)
+fourSquares = [4] * (n+1) # DP 저장 배열
 
 for i in range(1, int(math.sqrt(n))+1):
-    fourSquares[i*i] = 1
+    fourSquares[i*i] = 1 # 제곱수는 무조건 1
 
 for i in range(1, n+1):
-    if fourSquares[i] != 0:
+    if fourSquares[i] == 1: # 제곱수라면 패스
         continue
+    
+    for j in range(1, int(math.sqrt(i)) + 1):
+        fourSquares[i] = min(fourSquares[i], fourSquares[i - j*j] + 1) # or fourSquares[i - j*j] + fourSquares[j * j], 하지만 j*j는 제곱수이기 때문에 무조건 1임
 
-    j = 1
+        if fourSquares[i] == 2: # 제곱수를 제외하면 2가 가장 작은 수임
+            break  # 그러므로 반복 중단
 
-    while j*j <= i:
-        if fourSquares[i] == 0:
-            fourSquares[i] = fourSquares[j*j] + fourSquares[i - j*j]
-        else:
-            fourSquares[i] = min(fourSquares[i], fourSquares[j*j] + fourSquares[i - j*j])
-        j += 1
+
 
 print(fourSquares[n])
