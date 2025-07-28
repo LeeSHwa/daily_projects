@@ -44,52 +44,45 @@
 5
 1
 '''
+# 입력 좌표가 (x, y) 형태임
+# 하지만 2차원 리스트에서는 (행, 열) 이기 때문에 (y, x)가 정답
+# 만약 y, x = map(int, input().split()) 로 입력받는다면
+# 그 배열은 전치되어 있다는 것임 
 from collections import deque
 
 T = int(input())
 dirs = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-listup = []
-visited = []
-
-def bfs(cabbages, x, y):
-    queue = deque()
-    queue.append((x, y))
-    count = 0
-    
-    while queue:
-        a, b = queue.popleft()
-        visited.append([a, b])
-
-        for dir in dirs:
-            dx, dy = dir
-
-            nx, ny = a + dx, b + dy
-            if 0 <= nx < M and 0 <= ny < N and cabbages[nx][ny]:
-                queue.append([nx, ny])
-                
-    count += 1
-
-    return count
-
 
 for _ in range(T):
-    M, N, K = map(int, input().split())
-
-    cabbages = [[0 for x in range(M)] for y in range(N)]
-
-    Flag = False
+    M, N, K = map(int, input().split()) # M : 가로, N : 세로
+    cabbages = [[0]*M for _ in range(N)]
+    visited = [[False]*M for _ in range(N)] # visited는 bool 형식으로 관리, set or list로 관리하는 것 보다 훨씬 나음
 
     for _ in range(K):
-        y, x = map(int, input().split())
-        cabbages[x][y] = 1
-        listup.append((x, y))
+        y, x = map(int, input().split()) # 1, 3
+        cabbages[x][y] = 1 # y가 행(세로), x가 열(가로) [3][1]
 
-for node in listup:
-    if (x, y) not in visited:
-        count = bfs(cabbages, x, y)
-        print(count)
+    def bfs(sx, sy):
+        queue = deque()
+        queue.append((sx, sy))
+        visited[sx][sy] = True
 
-    # for i in range(N):
-    #     for j in range(M):
-    #         print(cabbages[i][j], end = " ")
-    #     print()
+        while queue:
+            x, y = queue.popleft()
+
+            for dx, dy in dirs:
+                nx, ny = x + dx, y + dy
+
+                if 0 <= nx < N and 0 <= ny < M:
+                    if cabbages[nx][ny] and not visited[nx][ny]:
+                        visited[nx][ny] = True
+                        queue.append((nx, ny))
+
+
+    count = 0
+    for x in range(N):
+        for y in range(M):
+            if cabbages[x][y] == 1 and not visited[x][y]:
+                bfs(x, y)
+                count+=1
+    print(count)
