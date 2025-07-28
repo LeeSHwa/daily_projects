@@ -1,13 +1,5 @@
-import math
+from collections import deque
 
-N = int(input())
+queue = deque([1, 3])
 
-M = int(math.sqrt(N)) + 1
-
-for i in range(2, N):
-    while N % i == 0:
-        print(i)
-        N //= i
-    
-if N > 1:
-    print(N)
+print(queue)
