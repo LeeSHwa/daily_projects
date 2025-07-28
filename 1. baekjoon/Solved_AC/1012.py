@@ -54,7 +54,6 @@ visited = []
 def bfs(cabbages, x, y):
     queue = deque()
     queue.append((x, y))
-    visited = []
     count = 0
     
     while queue:
