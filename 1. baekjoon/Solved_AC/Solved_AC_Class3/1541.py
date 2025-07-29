@@ -27,6 +27,20 @@
 예제 출력 3 
 0
 '''
-line = list(input().split('-'))
+polynomial = input().split('-') # -를 기준으로 나눠진 덩어리들은 합쳐서 한 번에 빼는게 가장 이득
 
-print(line)
+length = len(polynomial) # -를 기준으로 나눠진 덩어리들의 개수
+
+for i in range(length):
+    if '+' in polynomial[i]: # 덩어리 안에서 다 합쳐주기 위해 +를 기준으로 나누고
+        polynomial[i] = sum(map(int, polynomial[i].split('+'))) # 더함
+    else:
+        polynomial[i] = int(polynomial[i]) # 없다면 그냥 str형을 int형으로 형변환
+
+if length == 1: # 만약 덩어리가 하나라면 (= -괄호가 없다면, +괄호만 있다면)
+    answer = sum(polynomial) # 그대로 합산
+else:
+    answer = - (sum(polynomial) - 2*polynomial[0]) # 첫 항을 제외한 나머지 항은 합쳐서 빼줘야 함, 그걸 반대로 뒤집은 것 (전체항의 합 - 첫째 항 * 2)
+
+print(answer)
+    
