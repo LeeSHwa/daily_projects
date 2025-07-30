@@ -31,21 +31,24 @@ count = 0
 for _ in range(K):
     cables.append(int(input()))
 
-# min_value = min(cables)
-avg_value = sum(cables) // N
+start = 1
+end = max(cables)
 
-for i in range(K):
-    # count += cables[i] // min_value
-    count += cables[i] // avg_value
+answer = 0
 
-if count >= N:
-    print(avg_value)
-else:
-    while count < N:
-        count = 0
-        avg_value -= 1
-        
-        for i in range(K):
-            count += cables[i] // avg_value
+while start <= end:
+    mid = (start + end) // 2
+    count = 0
 
-    print(avg_value)
+    for j in range(K):
+        count += cables[j] // mid
+
+
+    if count >= N:
+        answer = mid
+        start = mid + 1
+    else:
+        end = mid - 1
+
+    
+print(answer)
