@@ -1,5 +1,2 @@
-from collections import deque
-
-queue = deque([1, 3])
-
-print(queue)
+for i in range(1, 50, i):
+    print(i)
