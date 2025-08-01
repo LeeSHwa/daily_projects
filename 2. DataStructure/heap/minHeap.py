@@ -1,6 +1,9 @@
+import sys
+input = sys.stdin.readline
+
 N = int(input())
 
-array = [int(input()) for _ in range(N)]
+array = [int(input().strip()) for _ in range(N)]
 
 heap = [0]
 
@@ -25,10 +28,10 @@ def sift_down(heap, idx):
         right = 2 * idx + 1
         smallest = idx
         
-        if left < N and heap[left] < heap[smallest]:
+        if left < length and heap[left] < heap[smallest]:
             smallest = left
         
-        if right < N and heap[right] < heap[smallest]:
+        if right < length and heap[right] < heap[smallest]:
             smallest = right
         
         if smallest == idx:
@@ -41,16 +44,20 @@ def pop(heap):
     if len(heap) == 1:
         return 0
     
-    heap[1], heap[-1] = heap[1], heap[-1]
+    heap[1], heap[-1] = heap[-1], heap[1]
     min_val = heap.pop()
     sift_down(heap, 1)
 
     return min_val
 
+answer = []
+
 for num in array:
     if num == 0:
-        ans = pop(heap)
-        print(ans)
+        popped = pop(heap)
+        answer.append(str(popped))
     
     else:
         push(heap, num)
+
+print('\n'.join(answer))
