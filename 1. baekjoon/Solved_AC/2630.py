@@ -7,10 +7,19 @@
 # 슬라이싱으로 쪼개볼까?
 
 N = int(input())
+flag = False
 
 lines = []
 for i in range(N):
     lines.append(list(map(int, input().split())))
+
+for i in range(N):
+    for j in range(N):
+        if lines[i][j] == 0:
+            flag = True
+            break
+
+array = []
 
 # for a in range(N):
 #     for b in range(N):
