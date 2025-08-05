@@ -11,9 +11,20 @@
 # 출력
 # 첫째 줄에 최소 비교 횟수를 출력한다.
 
-N = int(input())
+size = int(input())
+temp = []
+for i in range(size):
+    temp.append(list(map(int,input().split())))
 
-for i in range(N):
-    temp = list(map(int,input().split()))
 
-print(temp)
+def divide(matrix, size):
+
+    if size == 1:
+        return
+    
+    temp2 = [row[ : size//2] for row in temp[ : size//2]] # 2사분면
+    temp3 = [row[size//2 : size] for row in temp[ : size//2]] # 1사분면
+    temp4 = [row[ : size//2] for row in temp[size//2 : size]] # 3사분면
+    temp5 = [row[size//2 : size] for row in temp[size//2 : size]] # 4사분면
+
+    size //= 2
