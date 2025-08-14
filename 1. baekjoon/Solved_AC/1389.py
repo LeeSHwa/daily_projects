@@ -1,6 +1,6 @@
 # https://www.acmicpc.net/problem/1389
 import sys
-from collections import defaultdict
+from collections import defaultdict, deque
 
 input = sys.stdin.readline
 
@@ -13,8 +13,28 @@ for _ in range(M):
     friends[a].add(b)
     friends[b].add(a)
 
-# dfs를 사용해야함, visited는 그때그때 초기화
-# 스택? 재귀?
-# 기준 점에서 각 점까지 도달하는데 걸리는 횟수의 총합..
-# 횟수가 같다면 번호가 가장 작은 친구
+def bfs(start):
+    visited = set([start])
+    queue = deque([(start, 0)]) # 숫자, depth
+    total_distance = 0
 
+    while queue:
+        current, depth = queue.popleft()
+        total_distance += depth
+
+        for next_node in friends[current]:
+            if next_node not in visited:
+                queue.append((next_node, depth + 1))
+                visited.add(next_node)
+    
+    return total_distance
+
+min_bacon = float('inf')
+answer = -1
+for i in range(1, N+1):
+    distance = bfs(i)
+    if distance < min_bacon or (distance == min_bacon and i < answer):
+        min_bacon = distance
+        answer = i
+
+print(answer)
