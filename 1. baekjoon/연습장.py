@@ -1,40 +1,40 @@
-size = int(input())
-temp = []
-for i in range(size):
-    temp.append(list(map(int,input().split())))
+from collections import defaultdict, deque
+import sys
 
-temp2 = [row[ : size//2] for row in temp[ : size//2]] # 2사분면
-temp3 = [row[size//2 : size] for row in temp[ : size//2]] # 1사분면
-temp4 = [row[ : size//2] for row in temp[size//2 : size]] # 3사분면
-temp5 = [row[size//2 : size] for row in temp[size//2 : size]] # 4사분면
+input = sys.stdin.readline
 
-# print(temp2)
+friends = defaultdict(set)
 
-print("temp2")
-for i in range(size//2):
-    for j in range(size//2):
-        print(temp2[i][j], end=" ")
-    print()
-print()
+N, M = map(int, input().split())
 
+for _ in range(M):
+    a, b = map(int, input().split())
+    friends[a].add(b)
+    friends[b].add(a)
 
-print("temp3")
-for i in range(size//2):
-    for j in range(size//2):
-        print(temp3[i][j], end=" ")
-    print()
-print()
+def bfs(start):
+    queue = deque([(start, 0)])
+    visited = {start}
+    total_distance = 0
+    
+    while queue:
+        current, depth = queue.popleft()
+        total_distance += depth
 
-print("temp4")
-for i in range(size//2):
-    for j in range(size//2):
-        print(temp4[i][j], end=" ")
-    print()
-print()
+        for next_node in friends[current]:
+            if next_node not in visited:
+                queue.append((next_node, depth + 1))
+                visited.add(next_node)
+    
+    return total_distance
 
-print("temp5")
-for i in range(size//2):
-    for j in range(size//2):
-        print(temp5[i][j], end=" ")
-    print()
-print()
+min_bacon_value = float('inf')
+min_bacon_person = -1
+
+for i in range(1, N+1):
+    current_distance = bfs(i)
+    if current_distance < min_bacon_value:
+        min_bacon_value = current_distance
+        min_bacon_person = i
+
+print(min_bacon_person)
