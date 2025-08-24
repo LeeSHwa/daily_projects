@@ -6,6 +6,8 @@ input = sys.stdin.readline
 
 N = int(input())
 
+meeting = []
+
 for _ in range(N):
     start, end = map(int, input().split())
-    print(start, end)
+    meeting.append([start, end])
