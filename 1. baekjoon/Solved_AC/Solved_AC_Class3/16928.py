@@ -5,16 +5,23 @@ from collections import defaultdict, deque
 
 N, M = map(int, input().split())
 
-total = defaultdict(list)
+graph = defaultdict(list)
+
+force_move = {}
+
+for _ in range(N+M):
+    x, y = map(int, input().split())
+    force_move[x] = y
+
 
 for i in range(1, 100):
     for num in range(1, 7):
         if i + num <= 100:
-            total[i].append(i + num)
-
-for _ in range(N+M):
-    x, y = map(int, input().split())
-    total[x] = [y]
+            if i + num in force_move.keys():
+                graph[i].append(force_move[i+num])
+                continue
+            else:                
+                graph[i].append(i + num)
 
 queue = deque([(1, 0)])
 
@@ -28,16 +35,12 @@ while queue:
     if flag:
         break
 
-    for destination in total[start]:
+    for destination in graph[start]:
         if destination == 100:
             answer = count + 1
             flag = True
             continue
-        
-        if len(total[start]) == 1:
-            queue.append((destination, count))
-            visited[destination] = True
-
+            
         elif not visited[destination]:
             queue.append((destination, count + 1))
             visited[destination] = True
