@@ -36,20 +36,28 @@ def R(n):
     n = int(''.join(list_n))
     return n
 
-print(L(1000))
-print(R(1000))
+visited = set()
 
+for _ in range(T):
+    A, B = map(int, input().split())
     
-# for _ in range(T):
-#     A, B = map(int, input().split())
-    
-#     queue = deque([(A, [])])
+    queue = deque([(A, '')])
 
-#     dictionary = defaultdict(list)
-#     dictionary[A] = 
+    dictionary = defaultdict(list)
+    dictionary[A] = [(D(A), 'D'), (S(A), 'S'), (L(A), 'L'), (R(A), 'R')]
+    visited.add('A')
 
-#     while queue:
-#         x, comm = queue.popleft()
+    while queue:
+        x, comm = queue.popleft()
         
-#         for A in dictionary[x]:
+        if x == B:
+            answer = comm
+            break
 
+        for value, string in dictionary[x]:
+            if value not in visited:
+                visited.add(value)
+                queue.extend([(D(value), comm + 'D'), (S(value), comm + 'S'), (L(value), comm + 'L'), (R(value), comm + 'R')])
+            
+
+    print(answer)
