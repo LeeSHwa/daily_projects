@@ -22,30 +22,35 @@ def S(n):
     else:
         return n - 1
 
+# def L(n):
+#     list_n = deque(list(str(n)))
+#     temp = list_n.popleft()
+#     list_n.append(temp)
+#     n = int(''.join(list_n))
+#     return n
+
+# def R(n):
+#     list_n = deque(list(str(n)))
+#     temp = list_n.pop()
+#     list_n.appendleft(temp)
+#     n = int(''.join(list_n))
+#     return n
+
 def L(n):
-    list_n = deque(list(str(n)))
-    temp = list_n.popleft()
-    list_n.append(temp)
-    n = int(''.join(list_n))
-    return n
+    return (n % 1000) * 10 + n // 1000
 
 def R(n):
-    list_n = deque(list(str(n)))
-    temp = list_n.pop()
-    list_n.appendleft(temp)
-    n = int(''.join(list_n))
-    return n
-
-visited = set()
+    return (n % 10) * 1000 + n // 10
 
 for _ in range(T):
+
     A, B = map(int, input().split())
     
+    answer = 0
+    visited = set()
     queue = deque([(A, '')])
 
-    dictionary = defaultdict(list)
-    dictionary[A] = [(D(A), 'D'), (S(A), 'S'), (L(A), 'L'), (R(A), 'R')]
-    visited.add('A')
+    visited.add(A)
 
     while queue:
         x, comm = queue.popleft()
@@ -54,10 +59,25 @@ for _ in range(T):
             answer = comm
             break
 
-        for value, string in dictionary[x]:
-            if value not in visited:
-                visited.add(value)
-                queue.extend([(D(value), comm + 'D'), (S(value), comm + 'S'), (L(value), comm + 'L'), (R(value), comm + 'R')])
-            
+        D_x = D(x)
+        if D_x not in visited:
+            queue.append((D_x, 'D' + comm))
+            visited.add(D_x)
+        
+        S_x = S(x)
+        if S_x not in visited:
+            queue.append((S_x, 'S' + comm))
+            visited.add(S_x)
+
+        L_x = L(x)
+        if L_x not in visited:
+            queue.append((L_x, 'L' + comm))
+            visited.add(L_x)
+
+        R_x = R(x)
+        if R_x not in visited:
+            queue.append((R_x, 'R' + comm))
+            visited.add(R_x)
+
 
     print(answer)
