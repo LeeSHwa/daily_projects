@@ -22,20 +22,6 @@ def S(n):
     else:
         return n - 1
 
-# def L(n):
-#     list_n = deque(list(str(n)))
-#     temp = list_n.popleft()
-#     list_n.append(temp)
-#     n = int(''.join(list_n))
-#     return n
-
-# def R(n):
-#     list_n = deque(list(str(n)))
-#     temp = list_n.pop()
-#     list_n.appendleft(temp)
-#     n = int(''.join(list_n))
-#     return n
-
 def L(n):
     return (n % 1000) * 10 + n // 1000
 
@@ -47,10 +33,10 @@ for _ in range(T):
     A, B = map(int, input().split())
     
     answer = 0
-    visited = set()
+    visited = [False] * 10000
     queue = deque([(A, '')])
 
-    visited.add(A)
+    visited[A] = True
 
     while queue:
         x, comm = queue.popleft()
@@ -60,24 +46,24 @@ for _ in range(T):
             break
 
         D_x = D(x)
-        if D_x not in visited:
-            queue.append((D_x, 'D' + comm))
-            visited.add(D_x)
+        if not visited[D_x]:
+            queue.append((D_x, comm + 'D'))
+            visited[D_x] = True
         
         S_x = S(x)
-        if S_x not in visited:
-            queue.append((S_x, 'S' + comm))
-            visited.add(S_x)
+        if not visited[S_x]:
+            queue.append((S_x, comm + 'S'))
+            visited[S_x] = True
 
         L_x = L(x)
-        if L_x not in visited:
-            queue.append((L_x, 'L' + comm))
-            visited.add(L_x)
+        if not visited[L_x]:
+            queue.append((L_x, comm + 'L'))
+            visited[L_x] = True
 
         R_x = R(x)
-        if R_x not in visited:
-            queue.append((R_x, 'R' + comm))
-            visited.add(R_x)
+        if not visited[R_x]:
+            queue.append((R_x, comm + 'R'))
+            visited[R_x] = True
 
 
     print(answer)
