@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "C:\\Users\\tmdgh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/P1000.csproj",
+      "projectUniqueName": "C:\\daily_projects\\1. baekjoon\\BOJ(C#)\\P1000\\P1000.csproj",
       "projectName": "P1000",
-      "projectPath": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/P1000.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/obj/",
+      "projectPath": "C:\\daily_projects\\1. baekjoon\\BOJ(C#)\\P1000\\P1000.csproj",
+      "packagesPath": "C:\\Users\\tmdgh\\.nuget\\packages\\",
+      "outputPath": "C:\\daily_projects\\1. baekjoon\\BOJ(C#)\\P1000\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\tmdgh\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.412/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
