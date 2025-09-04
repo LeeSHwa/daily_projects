@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/P1000.csproj": {}
+    "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/P1001.csproj": {}
   },
   "projects": {
-    "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/P1000.csproj": {
+    "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/P1001.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/P1000.csproj",
-        "projectName": "P1000",
-        "projectPath": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/P1000.csproj",
+        "projectUniqueName": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/P1001.csproj",
+        "projectName": "P1001",
+        "projectPath": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/P1001.csproj",
         "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1000/obj/",
+        "outputPath": "/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codespace/.nuget/NuGet/NuGet.Config"

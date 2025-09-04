@@ -1,0 +1,15 @@
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/bin/Debug/net8.0/P1001
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/bin/Debug/net8.0/P1001.deps.json
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/bin/Debug/net8.0/P1001.runtimeconfig.json
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/bin/Debug/net8.0/P1001.dll
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/bin/Debug/net8.0/P1001.pdb
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.AssemblyInfoInputs.cache
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.AssemblyInfo.cs
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.csproj.CoreCompileInputs.cache
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.sourcelink.json
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.dll
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/refint/P1001.dll
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.pdb
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/P1001.genruntimeconfig.cache
+/workspaces/daily_projects/1. baekjoon/BOJ(C#)/P1001/obj/Debug/net8.0/ref/P1001.dll
