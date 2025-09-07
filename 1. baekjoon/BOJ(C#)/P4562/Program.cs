@@ -15,15 +15,17 @@ class Program
             string[] str_inputs = Console.ReadLine().Split();
             int[] numbers = Array.ConvertAll(str_inputs, int.Parse);
 
-            if (numbers[0] >= numbers[1])
-            {
-                Console.WriteLine("MMM BRAINS");
-            }
+            Console.WriteLine((numbers[0] >= numbers[1]) ? "MMM BRAINS" : "NO BRAINS");
 
-            else
-            {
-                Console.WriteLine("NO BRAINS");
-            }
+            // if (numbers[0] >= numbers[1]){
+            // {
+            //     Console.WriteLine("MMM BRAINS");
+            // }
+
+            // else
+            // {
+            //     Console.WriteLine("NO BRAINS");
+            // }
         }
     }
 }
