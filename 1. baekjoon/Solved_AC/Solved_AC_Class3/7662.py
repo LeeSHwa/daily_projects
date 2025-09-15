@@ -48,35 +48,39 @@ def sift_down(list, type):
         if type == 'min':
             
             if 0 < left < maximum_index:
-                if list[current] > list[left]:
-                    list[current], list[left] = list[left], list[current]
+                if list[temp] > list[left]:
+                    # list[current], list[left] = list[left], list[current]
                     temp = left
 
             if 0 < right < maximum_index:
-                if list[current] > list[right]:
-                    list[current], list[right] = list[right], list[current]
+                if list[temp] > list[right]:
+                    # list[current], list[right] = list[right], list[current]
                     temp = right
             
             if current == temp:
                 return
+            
             else:
+                list[current], list[temp] = list[temp], list[current]
                 current = temp
 
         else:
                     
             if 0 < left < maximum_index:
-                if list[current] < list[left]:
-                    list[current], list[left] = list[left], list[current]
+                if list[temp] < list[left]:
+                    # list[current], list[left] = list[left], list[current]
                     temp = left
 
             if 0 < right < maximum_index:
-                if list[current] < list[right]:
-                    list[current], list[right] = list[right], list[current]
+                if list[temp] < list[right]:
+                    # list[current], list[right] = list[right], list[current]
                     temp = right  
 
             if current == temp:
                 return
+            
             else:
+                list[current], list[temp] = list[temp], list[current]
                 current = temp
 
 # 테스트 케이스 개수
@@ -98,17 +102,6 @@ for _ in range(T):
         command, num = input().split()
         num = int(num)
         
-        # if len(min_q) > 1:
-        #     tem = min_q[1]
-        #     if dictionary[tem] < 1:
-        #         pop(min_q, 'min')
-    
-        # if len(max_q) > 1:
-        #     tem = max_q[1]
-        #     if dictionary[tem] < 1:
-        #         pop(max_q, 'max')
-            
-        
         # 삽입
         if command == 'I':
             push(min_q, num, 'min')
@@ -128,21 +121,28 @@ for _ in range(T):
             else:
                 if num == 1:
 
-                    while max_q and dictionary.get(max_q[1], 0) == 0:
+                    while len(max_q) > 1 and dictionary.get(max_q[1], 0) == 0:
                         pop(max_q, 'max')
 
-                    popped = pop(max_q, 'max')
-                    dictionary[popped] -= 1
+                    if len(max_q) > 1:
+                        popped = pop(max_q, 'max')
+                        dictionary[popped] -= 1
                     # print(f"Delete max : {max_q}")
                 else:
                     
-                    while min_q and dictionary.get(min_q[1], 0) == 0:
+                    while len(min_q) > 1 and dictionary.get(min_q[1], 0) == 0:
                         pop(min_q, 'min')
 
-                    popped = pop(min_q, 'min')
-                    dictionary[popped] -= 1
+                    if len(min_q) > 1:
+                        popped = pop(min_q, 'min')
+                        dictionary[popped] -= 1
                     # print(f"Delete min : {min_q}")
-    
+
+    while len(max_q) > 1 and dictionary.get(max_q[1], 0) == 0:
+        pop(max_q, 'max')
+    while len(min_q) > 1 and dictionary.get(min_q[1], 0) == 0:
+        pop(min_q, 'min')
+        
     if len(max_q) == 1 or len(min_q) == 1:
         print("EMPTY")
     else:
