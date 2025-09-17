@@ -1,7 +1,7 @@
 # https://www.acmicpc.net/problem/15650
 
 # 문제 - N과 M(2)
-import itertools
+# import itertools
 
 N, M = map(int, input().split())
 
@@ -20,11 +20,12 @@ line = []
 def backtrack(start, depth, line):
     
     for i in range(start, N+1):
-        line.append(i)
+        line.append(str(i))
 
         if depth == M:
             print(" ".join(line))
             line.pop()
+            continue
     
         backtrack(i+1, depth + 1, line)
         line.pop()
