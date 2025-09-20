@@ -5,3 +5,19 @@
 # 백트래킹
 
 N, M = map(int, input().split())
+
+line = []
+
+def backtrack(start):
+    
+    if len(line) == M:
+        print(" ".join(map(str, line)))
+        line.pop()
+        return
+    
+    for i in range(start, N+1):
+        line.append(i)
+        backtrack(i + 1)
+        line.pop()
+
+backtrack(1)
