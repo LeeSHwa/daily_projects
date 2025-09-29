@@ -5,10 +5,11 @@ Welcome! This repository is dedicated to improving my problem-solving skills thr
 
 The repository is organized by topic into the following directories:
 
--   **/1. baekjoon**: Solutions for problems from the Baekjoon Online Judge.
+-   **/1. baekjoon**: Solutions for problems from the Baekjoon Online Judge. ([My Solved.ac Profile](https://solved.ac/profile/seunghwa0321))
 -   **/2. DataStructure**: Implementations of core data structures.
 -   **/3. Sort**: Implementations of various sorting algorithms.
 -   **/4. Contest**: Code from programming contests.
+-   **/5. Learning**: Practice for learning new languages via problem-solving
 -   **/99. Previous**: An archive of older solutions.
 
 ## 🎯 Goals
