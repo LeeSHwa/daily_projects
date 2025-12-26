@@ -1,7 +1,11 @@
+import sys
 N = int(input())
 
 # Please write your code here.
 rest = []
+if N == 0:
+    print(0)
+    sys.exit()
 
 while N != 1:
     rest.append(N % 2)
