@@ -5,7 +5,7 @@ N, B = map(int, input().split())
 digits = []
 
 while True:
-    if N < 4:
+    if N < B:
         digits.append(N)
         break
     
