@@ -26,9 +26,11 @@ for _ in range(N):
 
     max_duplicated = max(max_duplicated, max(line))
 
-count = 0
-for i in line:
-    if i == max_duplicated:
-        count += 1
+# count = 0
+# for i in line:
+#     if i == max_duplicated:
+#         count += 1
 
-print(count)
+# print(count)
+
+print(max_duplicated)
