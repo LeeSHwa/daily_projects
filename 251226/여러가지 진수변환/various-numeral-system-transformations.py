@@ -2,9 +2,16 @@ N, B = map(int, input().split())
 
 # Please write your code here.
 
-num = 0
+digits = []
 
-for bit in N:
-    num = num * B + bit
+while True:
+    if N < 4:
+        digits.append(N)
+        break
+    
+    digits.append(N % B)
 
-print(num)
+    N //= B
+
+digits = digits[::-1]
+print(''.join(map(str, digits)))
