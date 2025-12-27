@@ -1,8 +1,10 @@
 def is_contain(A, B):
     if B[0] in A:
         start = A.index(B[0])
-        flag = False
+        
         for curr in range(start, len(A) + 1 - len(B)):
+            flag = False
+
             for j in range(0, len(B)):
                 if A[curr + j] == B[j]:
                     pass
