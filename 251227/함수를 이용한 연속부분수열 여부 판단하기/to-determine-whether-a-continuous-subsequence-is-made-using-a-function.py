@@ -1,30 +1,14 @@
 def is_contain(A, B):
-    if B[0] in A:
-        start = A.index(B[0])
-        
-        for curr in range(start, len(A) + 1 - len(B)):
-            flag = False
 
-            for j in range(0, len(B)):
-                if A[curr + j] == B[j]:
-                    pass
-                else:
-                    flag = True
-            if flag:
-                continue
-            else:
-                print("Yes")
-                return
-        print("No")
-        return
-    else:
-        print("No")
-        return
-    
-    
+    for i in range(len(A) - len(B) + 1):
+        if(A[i:i+len(B)] == B):
+            return True
     
 len_A, len_B = map(int, input().split())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
-is_contain(A, B)
+if is_contain(A, B):
+    print("Yes")
+else:
+    print("No")
