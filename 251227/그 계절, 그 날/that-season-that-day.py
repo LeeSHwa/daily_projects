@@ -1,11 +1,10 @@
 def is_leafYear(Year):
-    if Year % 4 != 0:
+    if Year % 4 != 0: # 4의 배수가 아니라면 다 걸러짐
         return False
-    if Year % 100 != 0:
+    if Year % 100 == 0 and Year % 400 == 0: # 4의 배수이면서 100의 배수지만 400의 배수라면 윤년
         return True
-    if Year % 100 == 0 and Year % 400 == 0:
-        return True
-
+    if Year % 100 == 0: # 4의 배수이면서 100의 배수가 아니라면 윤년
+        return False
     return True
 
 def what_is_the_weather(Year, Month, Day):
