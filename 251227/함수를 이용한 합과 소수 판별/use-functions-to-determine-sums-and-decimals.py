@@ -30,6 +30,6 @@ count = 0
 
 for num in range(A, B+1):
     if era[num]:
-        count += is_odd(num)
+        count += is_even(num)
 
 print(count)
