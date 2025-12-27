@@ -1,4 +1,4 @@
-def is_odd(N):
+def is_even(N):
     if N < 10:
         if N % 2 == 0:
             return 1
