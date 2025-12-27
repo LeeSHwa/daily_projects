@@ -5,8 +5,8 @@ def is_real(Month, Day):
     
     # day_of_the_week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-    if 0 < Month < 13 and 0 < day < 32:
-        if day > num_of_days[Month]:
+    if 0 < Month < 13 and 0 < Day < 32:
+        if Day > num_of_days[Month]:
             return False
         return True
     else:
