@@ -8,7 +8,7 @@ def sum_of_range(start, end):
     return sum(arr[start - 1 : end])
 
 
-for _ in range(N):
+for _ in range(M):
     start, end = map(int, input().split())
     
     print(sum_of_range(start, end))
