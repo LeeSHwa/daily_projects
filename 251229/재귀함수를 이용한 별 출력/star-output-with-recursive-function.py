@@ -7,4 +7,4 @@ def print_stars(N):
     print_stars(N-1)
     print('*' * N)
 
-print_stars(5)
+print_stars(N)
