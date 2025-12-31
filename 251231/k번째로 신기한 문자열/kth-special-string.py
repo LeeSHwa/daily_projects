@@ -1,6 +1,6 @@
 N, K, T = input().split()
 N = int(N)
-K = int(N)
+K = int(K)
 
 start_with_T = []
 window = len(T)
