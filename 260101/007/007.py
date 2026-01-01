@@ -8,6 +8,6 @@ class struct:
 one, two, three = input().split()
 secret = struct(one, two, three)
 
-print("srcret code : " + secret.code)
+print("secret code : " + secret.code)
 print("meeting point : " + secret.spot)
 print("time : " + secret.time)
