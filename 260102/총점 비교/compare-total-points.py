@@ -9,7 +9,7 @@ class student:
 
 students = [student(*input().split()) for _ in range(N)]
 
-students.sort(key=lambda x : -(x.sub1 + x.sub2 + x.sub3))
+students.sort(key=lambda x : (x.sub1 + x.sub2 + x.sub3))
 
 
 for i in students:
