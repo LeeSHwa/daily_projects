@@ -9,7 +9,7 @@ for i in range(N):
     if array[i] > T:
         count += 1
     else:
-        count = 1
+        count = 0
         
     max_count = max(max_count, count)
     
