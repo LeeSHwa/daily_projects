@@ -41,7 +41,7 @@ for i in range(M):
         for _ in range(distance):
             time += 1
             pos -= 1
-            A_log[time] = pos
+            B_log[time] = pos
     
     B_total_distance += distance
 
