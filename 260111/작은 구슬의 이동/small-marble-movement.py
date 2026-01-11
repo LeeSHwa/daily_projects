@@ -1,0 +1,27 @@
+N, T = map(int, iuput().split()) # N x N / T초 후
+
+R, C, D = map(int, iuput().split()) # (R, C), dirs
+
+dr = [-1, 0,  0, 1]
+dc = [ 0, 1, -1, 0]
+    #  D, R,  L, U
+# (3 - dir) % 4
+# dir 1 : 2
+# dir 3 : 0
+# dir 0 : 3 
+# dir 2 : 1 
+dirs = {"D" : 0, "R" : 1, "L" : 2, "U" : 3}
+dir = dirs[D]
+
+pos_r = R
+pos_c = C
+
+for _ in range(T):
+    if pos_r + dr[dir] < 0 and pos_r + dr[dir] >= N and pos_c + dc[dir] < 0 and pos_c + dc[dir] >= N:
+        dir = (3 - dir) % 4
+    
+    else: 
+        pos_r += dr[dir]
+        pos_c += dc[dir]
+
+print(pos_r, pos_c)
