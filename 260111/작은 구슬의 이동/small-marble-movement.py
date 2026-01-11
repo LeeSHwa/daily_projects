@@ -1,6 +1,6 @@
-N, T = map(int, iuput().split()) # N x N / T초 후
+N, T = map(int, input().split()) # N x N / T초 후
 
-R, C, D = map(int, iuput().split()) # (R, C), dirs
+R, C, D = input().split() # (R, C), dirs
 
 dr = [-1, 0,  0, 1]
 dc = [ 0, 1, -1, 0]
@@ -13,12 +13,12 @@ dc = [ 0, 1, -1, 0]
 dirs = {"D" : 0, "R" : 1, "L" : 2, "U" : 3}
 dir = dirs[D]
 
-pos_r = R
-pos_c = C
+pos_r = int(R)
+pos_c = int(C)
 
 for _ in range(T):
-    if pos_r + dr[dir] < 0 and pos_r + dr[dir] >= N and pos_c + dc[dir] < 0 and pos_c + dc[dir] >= N:
-        dir = (3 - dir) % 4
+    if pos_r + dr[dir] < 1 or pos_r + dr[dir] > N or pos_c + dc[dir] < 1 or pos_c + dc[dir] > N:
+        dir = (3 - dir)
     
     else: 
         pos_r += dr[dir]
