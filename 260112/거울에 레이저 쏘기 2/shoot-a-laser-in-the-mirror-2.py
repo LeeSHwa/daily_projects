@@ -15,7 +15,7 @@ S, W 같은 경우는 N - 나머지 가 됨
 dr = [-1, 0, 1, 0] # N -> E -> S -> W
 dc = [0, 1, 0, -1] 
 
-first_dir = K // 4
+first_dir = K // N
 rest = (K % N - 1) % N
 
 if first_dir == 0:   # North
@@ -67,6 +67,5 @@ while True:
         arrow = 0
     else:
         arrow = 1
-
 
 print(count)
