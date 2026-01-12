@@ -19,7 +19,7 @@ for comm in command:
         x += dx[dir]
         y += dy[dir]
         
-        if x == 0, y == 0:
+        if x == 0 and y == 0:
             print(total_time)
             exit()
 
