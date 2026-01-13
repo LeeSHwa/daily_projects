@@ -18,7 +18,7 @@ last = grid[0][0]
 
 count = 0
 while True:
-    if count == N*M - 1:
+    if count == N * M - 1:
         break
 
     nr = row + dr[dir]
@@ -26,7 +26,7 @@ while True:
 
     if 0 <= nr < N and 0 <= nc < M and not grid[nr][nc]:
         if grid[row][col] == 88:
-            grid[nr][nc] == 65
+            grid[nr][nc] = 65
         else:
             grid[nr][nc] = last + 1
         
@@ -43,3 +43,4 @@ for i in range(N):
     for j in range(M):
         print(chr(grid[i][j]), end = " ")
     print()
+
