@@ -25,7 +25,7 @@ while True:
     nc = col + dc[dir]
 
     if 0 <= nr < N and 0 <= nc < M and not grid[nr][nc]:
-        if grid[row][col] == 88:
+        if grid[row][col] == 90:
             grid[nr][nc] = 65
         else:
             grid[nr][nc] = last + 1
