@@ -1,6 +1,6 @@
 R, C = map(int, input().split())
 
-grid = [list(input().split()) for _ in range(C)]
+grid = [list(input().split()) for _ in range(R)]
 
 '''
 1. 색이 달라야 함
@@ -26,7 +26,7 @@ for i in range(1, R - 2): # 1 ~ R-2
 
                     if grid[p][q] == color:
                         count += 1
-                        # print(f"visited ({p}, {q})")
+        #                 print(f"visited ({p}, {q})")
         # print(f"({i}, {j})")
 print(count)
         
