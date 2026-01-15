@@ -16,13 +16,17 @@ col = 0
 color = grid[row][col]
 count = 0
 
-for i in range(1, R - 1):
-    for j in range(1, C - 1):
+for i in range(1, R - 2): # 1 ~ R-2
+    for j in range(1, C - 2):
+
         if grid[i][j] != color:
-            for p in range(i + 1, R - 1):
+
+            for p in range(i + 1, R - 1): # i + 1 ~ R - 1
                 for q in range(j + 1, C - 1):
+
                     if grid[p][q] == color:
                         count += 1
-
+                        # print(f"visited ({p}, {q})")
+        # print(f"({i}, {j})")
 print(count)
         
