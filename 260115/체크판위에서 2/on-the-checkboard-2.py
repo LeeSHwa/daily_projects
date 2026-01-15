@@ -10,11 +10,12 @@ grid = [list(input().split()) for _ in range(R)]
 시작과 끝을 포함하여 총 4번만에 이동해야함
 '''
 
-row = 0
-col = 0
-
-color = grid[row][col]
+color = grid[0][0]
 count = 0
+
+if color == grid[R-1][C-1]:
+    print(0)
+    exit()
 
 for i in range(1, R - 2): # 1 ~ R-2
     for j in range(1, C - 2):
