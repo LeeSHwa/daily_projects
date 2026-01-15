@@ -1,28 +1,25 @@
 n = int(input())
-points = [tuple(map(int, input().split())) for _ in range(n)]
-# x = [p[0] for p in points]
-# y = [p[1] for p in points]
+
+checks = [tuple(map(int, input().split())) for _ in range(n)]
+
+def cal_distance(current, next):
+    return abs(checks[current][0] - checks[next][0]) + abs(checks[current][1] - checks[next][1])
 
 min_distance = float('inf')
 
+for passing in range(1, n - 1): # 건너 뛸 지점
+    curr_distance = 0
+    last_idx = 0
 
-for passing in range(1, n-1): # passing : 1, 2
-    distance = 0
-    last_x = points[0][0]
-    last_y = points[0][1]
+    for visiting in range(1, n):   # 방문할 지점
+        if visiting == passing: # 만약 이 다음 방문할 지점이 건너 뛸 지점이라면
+            continue                # 스킵
+    
+        curr_distance += cal_distance(last_idx, visiting) # 마지막 위치로부터 다음 위치까지의 거리를 더해줌
+        last_idx = visiting
 
-    for i in range(n - 1): # i : 0, 1, 2, 3
-        if  i + 1 == passing:
-            i += 1
-            # print(f"지금 {i}({points[i]})에서 뛰어넘었음")
-            continue
-
-        distance += abs(last_x - points[i+1][0]) + abs(last_y - points[i+1][1])
-        # print(f"계산 중, last_x = {last_x}, last_y = {last_y}, points[{i+1}][0] = {points[i+1][0]}, points[{i+1}][1] = {points[i+1][1]}")
-        last_x = points[i+1][0]
-        last_y = points[i+1][1]
-
-    min_distance = min(min_distance, distance)
-    # print(f"{i + 1}. min_distance = {min_distance}")
+    min_distance = min(min_distance, curr_distance)
 
 print(min_distance)
+    
+        
