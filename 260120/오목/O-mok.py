@@ -15,7 +15,7 @@ for row in range(19):
                 nr = row + dr
                 nc = col + dc
 
-                if grid[nr][nc] == color:
+                if 0 <= nr < 19 and 0 <= nc < 19 and grid[nr][nc] == color:
                     stack = 2
 
                     while stack < 5:
@@ -36,4 +36,5 @@ for row in range(19):
                         print(nnr - dr * 2 + 1, nnc - dc * 2 + 1)
                         exit()
 
+print(0)
                         
