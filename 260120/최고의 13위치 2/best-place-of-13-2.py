@@ -10,7 +10,7 @@ for bar1_row in range(N):
         
         if (bar1_col + 2) + 3 < N:
             bar2_row = bar1_row
-            for bar2_col in range(bar1_col + 3, N):
+            for bar2_col in range(bar1_col + 3, N - 2):
                 bar2 = grid[bar2_row][bar2_col] + grid[bar2_row][bar2_col + 1] + grid[bar2_row][bar2_col + 2]
 
                 max_value = max(max_value, bar1 + bar2)
