@@ -4,20 +4,12 @@ field = list(map(int, input().split()))
 diff = []
 
 for idx in range(N):
-    if field[idx] == H:
-        T -= 1
     diff.append(abs(field[idx] - H))
-            
-diff.sort(reverse=True)
 
-ans = 0
-for i in range(len(diff) - 1, -1, -1):
-    if diff[i] == 0:
-        continue
-    else:
-        ans += diff[i]
-        T -= 1
-        if T == 0:
-            break
+ans = float('inf')
+
+for i in range(len(diff) - T + 1):
+    curr_sum = sum(diff[i:i+T])
+    ans = min(ans, curr_sum)
 
 print(ans)
