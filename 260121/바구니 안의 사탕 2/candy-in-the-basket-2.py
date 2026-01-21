@@ -1,25 +1,26 @@
 N, K = map(int, input().split())
 
 positions = [0] * 101
-max_pos = -1
 min_pos = 101
+max_pos = -1
 
 for _ in range(N):
     candy, pos = map(int, input().split())
     
     positions[pos] += candy
-    max_pos = max(max_pos, pos)
+    
     min_pos = min(min_pos, pos)
+    max_pos = max(max_pos, pos)
 
-search_range = 2 * K + 1
+max_value = -1
 
-max_candy = -1
-window = []
-ans = 0
+for pos in range(min_pos, max_pos + 1):
+    
+    start = 0 if pos - K < 0 else pos - K
+    end = 100 if pos + K > 100 else pos + K
+    # print(start, end)
+    if 1 <= start < 101 and 1 <= end < 101:
+        candies = positions[start : end + 1]
+        max_value = max(max_value, sum(candies))
 
-for pos in range(min_pos, max_pos - search_range + 2):
-    window = positions[pos : pos + search_range]
-    # print(pos, window)
-    max_candy = max(max_candy, sum(window))
-
-print(max_candy)
+print(max_value)
