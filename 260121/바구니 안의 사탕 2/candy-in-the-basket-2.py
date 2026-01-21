@@ -19,8 +19,8 @@ for pos in range(min_pos, max_pos + 1):
     start = 0 if pos - K < 0 else pos - K
     end = 100 if pos + K > 100 else pos + K
     # print(start, end)
-    if 1 <= start < 101 and 1 <= end < 101:
-        candies = positions[start : end + 1]
-        max_value = max(max_value, sum(candies))
+    
+    candies = positions[start : end + 1]
+    max_value = max(max_value, sum(candies))
 
 print(max_value)
