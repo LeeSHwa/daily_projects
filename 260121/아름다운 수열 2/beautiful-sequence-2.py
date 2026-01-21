@@ -8,20 +8,20 @@ if M > N:
     print(0)
     exit()
 
-buti = list(set(itertools.permutations(B, M)))
-# print(buti)
+# buti = list(set(itertools.permutations(B, M)))
+
 start = 0
 end = M
 count = 0
 
+sorted_B = sorted(B)
 
 
 for _ in range(N - M + 1): # 8 - 3
-    window = tuple(A[start:end])
+    window = sorted(A[start:end])
 
-    for num in buti:
-        if window == num:
-            count += 1
+    if window == sorted_B:
+        count += 1
 
     start += 1
     end += 1
