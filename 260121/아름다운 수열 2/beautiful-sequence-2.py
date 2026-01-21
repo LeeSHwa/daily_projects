@@ -4,8 +4,8 @@ N, M = map(int, input().split())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
-buti = list(itertools.permutations(B, M))
-
+buti = list(set(itertools.permutations(B, M)))
+# print(buti)
 start = 0
 end = M
 count = 0
