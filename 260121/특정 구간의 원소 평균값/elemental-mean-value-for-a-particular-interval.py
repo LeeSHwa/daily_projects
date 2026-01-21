@@ -4,14 +4,20 @@ nums = list(map(int, input().split()))
 
 count = 0
 
-for i in range(N-1): # 0
-    for j in range(i+1, N): # 1
-        window = []
+for i in range(N): # 2
+    for j in range(i+1, N+1): # 5
 
-        for num in range(i, j):
-            window.append(nums[num])
+        window = nums[i:j] # 2, 3, 4
+        
+        current_sum = sum(window)
+        length = j - i
 
-        if sum(window) // (j-i) in window: # nums[0] // 1
-            count += 1
+        if (current_sum % length) == 0:
+            avg = current_sum // length
+
+            if avg in window:
+                count += 1
+        
+        # print((sum(window) // (j-i)) , window)
 
 print(count)
