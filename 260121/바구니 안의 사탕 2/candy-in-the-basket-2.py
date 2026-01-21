@@ -7,7 +7,7 @@ min_pos = 101
 for _ in range(N):
     candy, pos = map(int, input().split())
     
-    positions[pos] = candy
+    positions[pos] += candy
     max_pos = max(max_pos, pos)
     min_pos = min(min_pos, pos)
 
@@ -17,11 +17,9 @@ max_candy = -1
 window = []
 ans = 0
 
-for pos in range(min_pos, max_pos - search_range + 1):
+for pos in range(min_pos, max_pos - search_range + 2):
     window = positions[pos : pos + search_range]
-
-    sum_window = sum(window)
-    if sum_window > max_candy:
-        max_candy = max(max_candy, sum_window)
+    # print(pos, window)
+    max_candy = max(max_candy, sum(window))
 
 print(max_candy)
