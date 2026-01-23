@@ -6,7 +6,7 @@ a1, b1, c1 = map(int, input().split())
 a2, b2, c2 = map(int, input().split())
 
 def cal(temp):
-    temp_range = [nums[temp + num] for num in range(-3, 2)]
+    temp_range = [nums[(temp + num) % N] for num in range(-3, 2)]
     return temp_range
 
 a1_range, b1_range, c1_range = cal(a1), cal(b1), cal(c1)
