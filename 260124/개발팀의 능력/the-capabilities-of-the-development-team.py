@@ -26,4 +26,6 @@ for i in range(4):
 
                         min_diff = min(min_diff, diff)
 
-print(min_diff)##
+if min_diff == 2001:
+    print(-1)
+else: print(min_diff)
