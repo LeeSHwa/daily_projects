@@ -16,7 +16,7 @@ for i in range(4):
         for k in range(4):
             for l in range(k + 1, 5):
                 
-                if k != i and l != j and k != i and l != j:
+                if k != i and l != j and k != j and l != i:
                     team2 = devs[k] + devs[l]
 
                     team3 = sum(devs) - team1 - team2
