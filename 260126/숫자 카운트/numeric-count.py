@@ -10,22 +10,22 @@ for i in range(1, 10):
                 continue
             
             flag = True
-            
+            # i,j,k는 지금 내가 검증할 수
             for num, strike, ball in array:
                 cnt_1 = 0
                 cnt_2 = 0
 
                 first, second, third = list(map(int, str(num)))
-
+                #f,s,t는 B가 질문한 수
                 if i == first : cnt_1 += 1
                 if j == second: cnt_1 += 1
                 if k == third : cnt_1 += 1
 
-                if i == second or i == third: cnt_2 += 1
-                if j == first or j == third : cnt_2 += 1
-                if k == first or k == second: cnt_2 += 1
+                if first == j or first == k: cnt_2 += 1
+                if second == i or second == k : cnt_2 += 1
+                if third == i or third == j: cnt_2 += 1
 
-                if cnt_1 != strike and cnt_2 != ball:
+                if cnt_1 != strike or cnt_2 != ball:
                     flag = False
                     break
             
