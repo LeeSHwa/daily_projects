@@ -11,22 +11,12 @@ max_extent = 0
 for i in range(n - 2):
     for j in range(i + 1, n - 1):
         for k in range(j + 1, n):
-            if x[i] != x[j] and y[i] == y[j] and x[j] == x[k] and y[j] != y[k] and x[i] != x[k] and y[i] != y[k]:
-                extent = abs(x[k] - x[i]) * abs(y[k] - y[i])
+            if (x[i] == x[j] or x[j] == x[k] or x[k] == x[i]) and (y[i] == y[j] or y[j] == y[k] or y[k] == y[i]):
+                width = max(x[i], x[j], x[k]) - min(x[i], x[j], x[k])
+                height = max(y[i], y[j], y[k]) - min(y[i], y[j], y[k])
+
+                extent = width * height
                 max_extent = max(max_extent, extent)
-            
-            elif x[i] == x[j] and y[i] != y[j] and x[j] != x[k] and y[j] == y[k] and x[i] != x[k] and y[i] != y[k]:
-                extent = abs(x[k] - x[i]) * abs(y[k] - y[i])
-                max_extent = max(max_extent, extent)
-            
-            elif x[i] != x[k] and y[i] == y[k] and x[j] == x[k] and y[j] != y[k] and x[i] != x[j] and y[i] != y[j]:
-                extent = abs(x[j] - x[i]) * abs(y[j] - y[i])
-                max_extent = max(max_extent, extent)
-            
-            elif x[i] == x[j] and y[i] != y[j] and x[j] != x[k] and y[j] != y[k] and x[i] != x[k] and y[i] == y[k]:
-                extent = abs(x[j] - x[k]) * abs(y[j] - y[k])
-                max_extent = max(max_extent, extent)
-            
 
 
 print(max_extent)
