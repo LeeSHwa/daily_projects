@@ -1,26 +1,25 @@
 n = int(input())
 
-pos = []
+pos = [tuple(map(int, input().split())) for _ in range(n)]
 
-is_dup = [False] * n
+pos.sort(key = lambda x : x[0])
 
-for _ in range(n):
-    pos.append(tuple(map(int, input().split())))
+L_MAX = [0] * n
+R_MIN = [0] * n
 
+temp = -1
 for i in range(n):
-    x1, x2 = pos[i]
+    temp = max(temp, pos[i][1])
+    L_MAX[i] = temp
 
-    for j in range(n):
+temp = float('inf')
+for i in range(n-1, -1, -1):
+    temp = min(temp, pos[i][1])
+    R_MIN[i] = temp
 
-        if j == i:
-            continue
+cnt = 0
+for idx in range(n):
+    if pos[idx][1] >= L_MAX[idx] and pos[idx][1] <= R_MIN[idx]: 
+        cnt += 1
 
-        diff_x1, diff_x2 = pos[j]
-
-        if x1 > diff_x1 and x2 < diff_x2:
-            is_dup[i] = True
-            is_dup[j] = True
-
-print(is_dup.count(False))
-
-        
+print(cnt)
