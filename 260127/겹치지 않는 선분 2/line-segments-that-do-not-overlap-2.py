@@ -7,7 +7,7 @@ pos.sort(key = lambda x : x[0])
 L_MAX = [0] * n
 R_MIN = [0] * n
 
-temp = -1
+temp = -float('inf')
 for i in range(n):
     temp = max(temp, pos[i][1])
     L_MAX[i] = temp
