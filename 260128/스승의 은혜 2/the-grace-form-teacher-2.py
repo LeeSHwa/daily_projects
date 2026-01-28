@@ -18,6 +18,7 @@ for i in range(N):
     if temp <= B:
         price = temp
         cnt += 1
-        continue
+    
+    break
 
 print(cnt)
