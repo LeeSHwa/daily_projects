@@ -6,12 +6,12 @@ timeline1 = defaultdict(list)
 
 timeline2 = [0] * 101
 
-eat_mushroom = defaultdict(list)
+eat_mushroom = defaultdict(set)
 
 for _ in range(D):
     p, m, t = map(int, input().split())
     timeline1[t].append((p, m))
-    eat_mushroom[m].append(p)
+    eat_mushroom[m].add(p)
 
 for _ in range(S):
     p, t = map(int, input().split())
