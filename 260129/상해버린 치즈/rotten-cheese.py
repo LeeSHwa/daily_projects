@@ -20,10 +20,11 @@ candidates = set([i for i in range(1, M + 1)])
 
 for time in range(1, 101):
     if timeline2[time]:                   # 만약 아팠다면 그 전의 먹은 사람과 버섯을 조사
-    
+        
+        current_cand = set()
+
         for person in timeline2:
     
-            current_cand = set()
             
             for in_time in range(1, time): # 아프기 전에 그 사람이 먹은 버섯을 후보에 추가
 
@@ -34,8 +35,8 @@ for time in range(1, 101):
                         if p == person:             # 만약 먹은사람이 아픈사람과 일치한다면
                             current_cand.add(m)     # 현재후보에 추가
 
-            if len(current_cand):                       # 만약 현재 후보가 빈 값이 아니라면
-                candidates = candidates & current_cand  # 기존 후보군들과 교집합 연산을 통해 용의자 버섯을 추림
+        if len(current_cand):                           # 만약 현재 후보가 빈 값이 아니라면
+            candidates = candidates & current_cand      # 기존 후보군들과 교집합 연산을 통해 용의자 버섯을 추림
 
 max_med = 0
 
