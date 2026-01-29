@@ -4,7 +4,7 @@ N, M, D, S = map(int, input().split())
 
 timeline1 = defaultdict(list)
 
-timeline2 = [0] * 101
+timeline2 = [0] * 102
 
 eat_mushroom = defaultdict(set)
 
