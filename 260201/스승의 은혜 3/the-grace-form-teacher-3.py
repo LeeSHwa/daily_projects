@@ -2,7 +2,7 @@ N, B = map(int, input().split())
 
 cost = [tuple(map(int, input().split())) for _ in range(N)]
 
-cost.sort(key = lambda x : x[0] + x[1])
+cost.sort(key = lambda x : (x[0] + x[1], -x[0]))
 
 discount_cost = [(a // 2, b) for a, b in cost]
 
@@ -30,7 +30,7 @@ for i in range(N):
 
         if temp > B:
             break
-            
+
         cnt += 1         
 
     ans = max(ans, cnt)  
