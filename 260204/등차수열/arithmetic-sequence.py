@@ -4,8 +4,9 @@ nums = list(map(int, input().split()))
 
 nums.sort()
 
-cnt = 0
+max_cnt = 0
 for K in range(1, 101):
+    cnt = 0
     for num in nums:
         if K > num:
             diff = K - num
@@ -13,4 +14,5 @@ for K in range(1, 101):
             if K + diff in nums:
                 cnt += 1   
 
-print(cnt)
+    max_cnt = max(max_cnt, cnt)
+print(max_cnt)
