@@ -1,6 +1,6 @@
 nums = [str(input()) for _ in range(3)]
 
-cnt = 0
+ans = []
 
 
 # 1. 가로 3줄
@@ -12,8 +12,8 @@ for i in range(3):
     set_num.add(nums[i][2])
 
 
-    if len(set_num) == 2:
-        cnt += 1
+    if len(set_num) == 2 and not set_num in ans:
+        ans.append(set_num)
 
 
 
@@ -25,8 +25,8 @@ for i in range(3):
     set_num.add(nums[1][i])
     set_num.add(nums[2][i])
 
-    if len(set_num) == 2:
-        cnt += 1
+    if len(set_num) == 2 and not set_num in ans:
+        ans.append(set_num)
 
 
 set_num = set()
@@ -35,8 +35,8 @@ set_num = set()
 for i in range(3):
     set_num.add(nums[i][i])
 
-if len(set_num) == 2:
-    cnt += 1
+if len(set_num) == 2 and not set_num in ans:
+    ans.append(set_num)
 
 set_num = set()
 
@@ -44,7 +44,7 @@ set_num = set()
 for i in range(3):
     set_num.add(nums[i][2 - i])
 
-if len(set_num) == 2:
-    cnt += 1
+if len(set_num) == 2 and not set_num in ans:
+    ans.append(set_num)
 
-print(cnt)
+print(len(ans))
