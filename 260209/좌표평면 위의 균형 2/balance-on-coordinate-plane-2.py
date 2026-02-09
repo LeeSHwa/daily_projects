@@ -6,8 +6,8 @@ MAX_POS = 100
 
 m = float('inf')
 
-for line_y in range(1, MAX_POS + 1):
-    for line_x in range(1, MAX_POS + 1):
+for line_y in range(2, MAX_POS + 1, 2):
+    for line_x in range(2, MAX_POS + 1, 2):
         # 4분위로 나눠
 
         counts = [0, 0, 0, 0]
