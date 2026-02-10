@@ -16,8 +16,6 @@ for i in range(N):
 
     distance[i] = cnt
 
-print(*distance)
-
 cnt = MAX_DISTANCE
 # RIGHT
 for i in range(N - 1, -1, -1):
