@@ -8,7 +8,7 @@ for _ in range(N):
     A_list.append(a)
     B_list.append(b)
 
-for candidate in range(A_list[0], B_list[0] + 1):
+for candidate in range(A_list[0] // 2, B_list[0] + 1):
     
     curr_num = candidate * 2
     flag = True
