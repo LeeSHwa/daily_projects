@@ -1,21 +1,16 @@
 N, K = map(int, input().split())
 arr = [int(input()) for _ in range(N)]
 arr.sort()
-
 # Please write your code here.
-
 
 max_cnt = 0
 for i in range(N):
 
-    curr_cnt = 0
     curr_min = float('inf')
     curr_max = 0
     temp = [arr[i]]
 
-    for j in range(N):
-        if j == i:
-            continue
+    for j in range(i + 1, N):
 
         temp.append(arr[j])
         
