@@ -2,19 +2,20 @@ from collections import defaultdict
 
 n, k = map(int, input().split())
 booms = defaultdict(list)
-flag = True
 
 def is_explosion(array):
     length = len(array)
-    explosion = 0
+    explosion = set()
     last_num = array[0]
 
     for idx in range(1, length):
         if array[idx] - last_num <= k:
-            explosion += 1
+            explosion.add(array[idx])
+            explosion.add(last_num)
+
         last_num = array[idx]
     
-    return explosion
+    return len(explosion)
 
 for idx in range(n):
     boom = int(input())
@@ -28,7 +29,7 @@ for elem in booms:
 
 ans = sorted(booms.items(), key = lambda x : (-x[1], -x[0]))
 
-if flag:
+if ans[0][1] < 1:
     print(0)
 else:
     print(ans[0][0])
