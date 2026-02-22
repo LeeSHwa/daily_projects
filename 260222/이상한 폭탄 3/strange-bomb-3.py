@@ -4,7 +4,7 @@ n, k = map(int, input().split())
 booms = defaultdict(list)
 flag = True
 
-def is_closed(array):
+def is_explosion(array):
     length = len(array)
     explosion = 0
     last_num = array[0]
@@ -22,8 +22,8 @@ for idx in range(n):
     booms[boom].append(idx)
     
 for elem in booms:
-    booms[elem] = is_closed(booms[elem])
-    if booms[elem] > 1:
+    booms[elem] = is_explosion(booms[elem])
+    if booms[elem] > 0:
         flag = False
 
 ans = sorted(booms.items(), key = lambda x : (-x[1], -x[0]))
