@@ -23,6 +23,6 @@ for h in range(101):
     temp2 = [x + y for x, y in zip_longest(temp, L_list, fillvalue = 0)]
 
     if is_possible(h, temp2):
-        ans = min(temp2)
+        ans = max(h, min(temp2))
 
 print(ans)
