@@ -1,23 +1,21 @@
-from collections import defaultdict
-
 n = int(input())
-googoo = defaultdict(list)
 
-for _ in range(n):
-    a, b = map(int, input().split())
+last_pos = {}
 
-    googoo[a].append(b)
+
 
 ans = 0
-for _, pos in googoo.items():
+
+for i in range(n):
+
+    googoo, side = map(int, input().split())
+
+    if googoo in last_pos and side != last_pos[googoo]:
+
+        ans += 1
     
-    last_pos = pos[0]
-    curr_cnt = 0
-    for i in pos:
-        if i != last_pos:
-            curr_cnt += 1
-        last_pos = i
-    
-    ans += curr_cnt
+    last_pos[googoo] = side
+
+
 
 print(ans)
