@@ -8,7 +8,8 @@ for time in range(M):
 
     if time >= (p - 1) and timeline[time][0] in programmers:
         programmers.remove(timeline[time][0])
+        
+if timeline[p - 1][1] == '0':
+    exit()
 
 print(*programmers)
-
-
