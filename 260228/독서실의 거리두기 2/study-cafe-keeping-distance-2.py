@@ -28,9 +28,9 @@ candidate = distance.index(max(distance))
 
 seats[candidate] = '1'
 
-last = 0
+last = seats.index('1')
 min_distance = float('inf')
-for i in range(1, n):
+for i in range(last + 1, n):
     curr_distance = 0
     if seats[i] == '1':
         curr_distance = i - last
