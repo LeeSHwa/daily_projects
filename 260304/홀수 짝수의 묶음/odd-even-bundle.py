@@ -14,7 +14,8 @@ while even < odd:
     odd -= 2
     even += 1
 
-    if even > odd + 1:
-        even -= 1
+
+while even > odd + 1:
+    even -= 1
 
 print(odd + even)
