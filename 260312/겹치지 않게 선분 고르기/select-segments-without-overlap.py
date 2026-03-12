@@ -15,10 +15,14 @@ def apply_var(x1, x2, var):
     for idx in range(x1, x2 + 1):
         array[idx] += var
 
-def recurr(dep, cnt):
+def recurr(dep, cnt):    
     global ans
     if dep == n:
         ans = max(ans, cnt)
+        return
+    
+    if visited[dep]:
+        recurr(dep + 1, cnt)
         return
     
     curr_x1, curr_x2 = lines[dep]
@@ -39,9 +43,17 @@ def recurr(dep, cnt):
     apply_var(curr_x1, curr_x2, -1)
 
 for i in range(n):
+    base_x1, base_x2 = lines[i]
+
+    # 1. 적용
+    apply_var(base_x1, base_x2, 1)
     visited[i] = True
-    recurr(i, 0)
+
+    # 2. 재귀
+    recurr(0, 0)
+
+    # 3. 반환
     visited[i] = False
+    apply_var(base_x1, base_x2, 2)
 
-
-print(ans)
+print(ans + 1)
