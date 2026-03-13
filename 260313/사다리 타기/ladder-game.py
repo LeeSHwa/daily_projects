@@ -22,7 +22,7 @@ position = [0] * (n + 1)
 for man in range(1, n + 1):
     curr = man
     
-    for pos in range(1, m + 1):
+    for pos in range(1, 16):
     
         if curr in height_dict[pos]: # 현재 위치에 오른쪽으로 가로줄이 있다면
             curr += 1                # + 1
