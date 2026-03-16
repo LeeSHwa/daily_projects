@@ -49,7 +49,7 @@ def recurr(elem_idx, curr_cnt):
         return
     
     # 1. 종료조건
-    if elem_idx == n:
+    if elem_idx == m:
         curr_pos = play_game()
         
         if curr_pos == ans_pos:
