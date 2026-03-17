@@ -2,7 +2,6 @@ n, m, c = map(int, input().split())
 weight = [list(map(int, input().split())) for _ in range(n)]
 
 max_price = 0
-temp = []
 
 # array에서 m개 요소 이하로 c보다 작게 만들 수 있는지 확인하고, 최대 값을 반환하는 함수
 def recurr(array, idx, curr_sum, curr_price):
@@ -13,18 +12,19 @@ def recurr(array, idx, curr_sum, curr_price):
         max_price = max(max_price, curr_price)
         return
     
+    # 1. 포함하고 탐색
     if curr_sum + array[idx] <= c:
         recurr(array, idx + 1, curr_sum + array[idx], curr_price + array[idx] ** 2)
+
+    # 2. 포함하지 않고 탐색
     recurr(array, idx + 1, curr_sum, curr_price)
     
-
 mapping_table = [[0] * (n - m + 1) for _ in range(n)]
 
 # mapping table
 array = []
 for i in range(n):
     for j in range(n - m + 1):
-        temp = []
         max_price = 0
         array = weight[i][j : j + m]
         recurr(array, 0, 0, 0)
