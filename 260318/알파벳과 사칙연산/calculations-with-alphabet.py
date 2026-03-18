@@ -4,16 +4,22 @@ N = len(expression)
 
 mapping_table = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5}
 alphas = [0, 0, 0, 0, 0, 0]
+is_exist = [False] * 6
+
+for alpha in mapping_table.keys():
+    if alpha in expression:
+        is_exist[mapping_table[alpha]] = True
+
 
 def cal_exp(exp):
-    if len(exp) == 1:
+    if N == 1:
         return 4
 
     idx = 1
     num = exp[0]
     oper = None
     
-    while idx < len(exp):
+    while idx < N:
         oper = exp[idx]
         next_num = exp[idx + 1]
 
@@ -30,7 +36,7 @@ def cal_exp(exp):
 
     return num
 
-max_result = 0
+max_result = -float('inf')
 
 def recurr(alphas, idx):
     global max_result
@@ -43,14 +49,14 @@ def recurr(alphas, idx):
 
         curr_result = cal_exp(temp)
         max_result = max(max_result, curr_result)
-    
         return
     
-    alphas[idx] = 4
+    if is_exist[idx]:
+        alphas[idx] = 4
 
-    recurr(alphas, idx + 1)
-    
-    alphas[idx] = 1
+        recurr(alphas, idx + 1)
+        
+        alphas[idx] = 1
 
     recurr(alphas, idx + 1)
 
