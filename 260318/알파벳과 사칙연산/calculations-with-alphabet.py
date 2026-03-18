@@ -48,11 +48,21 @@ def recurr(alphas, idx):
             temp[i] = alphas[mapping_table[temp[i]]]
 
         curr_result = cal_exp(temp)
-        max_result = max(max_result, curr_result)
+        if curr_result > max_result:
+            max_result = curr_result
+        
         return
     
     if is_exist[idx]:
         alphas[idx] = 4
+
+        recurr(alphas, idx + 1)
+
+        alphas[idx] = 3
+
+        recurr(alphas, idx + 1)
+
+        alphas[idx] = 2
 
         recurr(alphas, idx + 1)
         
