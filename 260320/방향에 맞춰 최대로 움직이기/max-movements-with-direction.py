@@ -16,15 +16,14 @@ col -= 1
 def found(r, c, dir):
     array = []
     dr, dc = dir
-    row, col = r, c
 
     while True:
-        nr = row + dr
-        nc = col + dc
+        nr = r + dr
+        nc = c + dc
 
         if 0 <= nr < n and 0 <= nc < n:
             array.append((nr, nc))
-            row, col = nr, nc
+            r, c = nr, nc
         else:
             break
 
@@ -35,8 +34,6 @@ def backtrack(r, c, dirr, cnt):
     global max_cnt
 
     max_cnt = max(max_cnt, cnt)
-    
-    dr, dc = dirr
 
     search_array = found(r, c, dirrection[dirr_grid[r][c]])
         
