@@ -50,11 +50,11 @@ ans = 0
 def backtrack(idx, cnt, current_num):
     global ans 
     
-    if idx == n:
-        return
-    
     if cnt == m:
         ans = max(ans, bin_to_dec(current_num))
+        return
+    
+    if idx == n:
         return
     
     if cnt == 0:
