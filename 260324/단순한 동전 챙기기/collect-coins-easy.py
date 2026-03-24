@@ -22,9 +22,6 @@ ans = float('inf')
 
 def backtrack(pos, idx, move_count):
     global ans
-    # 탐색이 모두 끝났을 때
-    if idx == len(exist):
-        return
     
     row, col = pos
         
@@ -32,9 +29,16 @@ def backtrack(pos, idx, move_count):
     if len(visited) == 3:
         ans = min(ans, move_count + abs(row - position['end'][0]) + abs(col - position['end'][1]))
         return
+    
+    # 탐색이 모두 끝났을 때
+    if idx == len(exist):
+        return
 
     visited.append(exist[idx])
     backtrack(position[exist[idx]], idx + 1, move_count + abs(row - position[exist[idx]][0]) + abs(col - position[exist[idx]][1]))
+    visited.pop()
+
+    backtrack(position[exist[idx]], idx + 1, move_count)
 
 backtrack(position['start'], 0, 0)
 
