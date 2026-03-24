@@ -18,11 +18,17 @@ def calc():
 def backtrack(idx, select_cnt):
     global ans
 
+    # 종료조건
     if select_cnt == m:
         current_max = calc()
         ans = min(ans, current_max)
         return
     
+    # 가지치기
+    if n - idx < m - select_cnt:
+        return
+
+    # 탐색 끝
     if idx == n:
         return
     
