@@ -8,13 +8,13 @@ min_price = float('inf')
 def backtrack(start, explored_cnt, curr_price):
     global min_price
 
-    if explored_cnt == n - 1:
+    if explored_cnt == n - 1 and grid[start][0] != 0:
         total_price = curr_price + grid[start][0]
         min_price = min(min_price, total_price)
 
         return
     
-    if curr_price > min_price:
+    if curr_price >= min_price:
         return
     
     for end in range(1, n):
