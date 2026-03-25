@@ -2,25 +2,24 @@ n = int(input())
 
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-# 0은 True로 해둘까?
 visited = [False] * n
 min_price = float('inf')
 
 def backtrack(start, explored_cnt, curr_price):
     global min_price
 
-    if curr_price > min_price:
-        return
-
-    if explored_cnt == n:
+    if explored_cnt == n - 1:
         total_price = curr_price + grid[start][0]
         min_price = min(min_price, total_price)
+
         return
     
-    for end in range(n):
-        if end == start or visited[end]:
+    if curr_price > min_price:
+        return
+    
+    for end in range(1, n):
+        if end == start or visited[end] or grid[start][end] == 0:
             continue
-        
         visited[end] = True
         
         backtrack(end, explored_cnt + 1, curr_price + grid[start][end])
