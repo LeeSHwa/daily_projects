@@ -9,7 +9,9 @@ max_value = 0
 def backtrack(row, curr_min_value):
     global max_value
     
-    
+    if curr_min_value <= max_value:
+        return
+        
     if row == n:
         max_value = max(max_value, curr_min_value)
         return
