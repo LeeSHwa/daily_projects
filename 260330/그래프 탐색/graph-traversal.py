@@ -11,22 +11,19 @@ for start, end in edges:
     
 
 visited = [False] * (n + 1)
-
+visited[1] = True
 ans = 0
 
-def dfs(num, cnt):
+def dfs(num):
     global ans
 
-    ans = max(cnt, ans)
-    
-    visited[num] = True
-    
     for next_num in array[num]:
-        if array[next_num] and not visited[next_num]:
-            dfs(next_num, cnt + 1)
-    return
+        if not visited[next_num]:
+            # print(num, next_num)
+            visited[next_num] = True
+            dfs(next_num)
 
 
-dfs(1, 0)
+dfs(1)
 
-print(ans)
+print(visited.count(True) - 1)
