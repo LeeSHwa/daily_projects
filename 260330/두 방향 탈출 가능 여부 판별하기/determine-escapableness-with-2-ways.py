@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-edges = [tuple(map(int, input().split())) for _ in range(m)]
+edges = [list(map(int, input().split())) for _ in range(n)]
 
 visited = [[False] * m for _ in range(n)]
 
@@ -11,7 +11,7 @@ def dfs(row, col):
         nr = row + dr
         nc = col + dc
 
-        if 0 <= nr < m and 0 <= nc < n and not visited[nr][nc] and edges[nr][nc]:
+        if 0 <= nr < n and 0 <= nc < m and not visited[nr][nc] and edges[nr][nc]:
             visited[nr][nc] = True
             dfs(nr, nc)
 
