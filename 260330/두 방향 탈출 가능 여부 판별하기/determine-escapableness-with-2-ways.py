@@ -11,7 +11,7 @@ def dfs(row, col):
         nr = row + dr
         nc = col + dc
 
-        if 0 <= nr < m and 0 <= nc < n and not visited[nr][nc] and edges[nr][nc] == 0:
+        if 0 <= nr < m and 0 <= nc < n and not visited[nr][nc] and edges[nr][nc]:
             visited[nr][nc] = True
             dfs(nr, nc)
 
