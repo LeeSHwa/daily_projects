@@ -45,7 +45,7 @@ def dfs(row, col, k):
             visited[nr][nc] = True
             dfs(nr, nc, k)
 
-max_cnt = 0
+max_cnt = -1
 min_k = float('inf')
 
 for k in range(1, max_value + 1):
@@ -61,7 +61,7 @@ for k in range(1, max_value + 1):
                 visited[row][col] = True
                 dfs(row, col, k)
         
-    if curr_cnt >= max_cnt:
+    if curr_cnt > max_cnt:
         max_cnt = curr_cnt
         min_k = k
 
