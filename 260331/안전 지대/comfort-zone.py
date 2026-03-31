@@ -65,5 +65,5 @@ for k in range(1, max_value + 1):
         max_cnt = curr_cnt
         min_k = k
 
-print(max_cnt, min_k)
+print(min_k, max_cnt)
                 
