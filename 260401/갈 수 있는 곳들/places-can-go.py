@@ -8,13 +8,9 @@ starts = [tuple(map(int, input().split())) for _ in range(k)]
 
 dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
-visited = []
+visited = [[False] * n for _ in range(n)]
 
-possible_vertexs = set()
-
-def refresh_visited():
-    global visited
-    visited = [[False] * n for _ in range(n)]
+array = []
 
 def can_go(row, col):
     if row >= n or row < 0 or col >= n or col < 0:
@@ -29,37 +25,50 @@ def can_go(row, col):
     return True
 
 
-def bfs():
-    # global possible_vertexs
-    for r, c in starts:
-        refresh_visited()
-
-        q = deque()
-
-        r -= 1
-        c -= 1
-
-        q.append((r, c))
-        visited[r][c] = True
-        possible_vertexs.add((r, c))
+def bfs(r, c):
+    
+    temp = []
+    q = deque()
+    q.append((r, c))
+    visited[r][c] = True
+    temp.append((r, c))
+    
+    while q:
+        row, col = q.popleft()
         
-        while q:
-            row, col = q.popleft()
+        for dr, dc in dirs:
+            nr = row + dr
+            nc = col + dc
 
-            for dr, dc in dirs:
-                nr = row + dr
-                nc = col + dc
-
-                if can_go(nr, nc):
-                    visited[nr][nc] = True
-                    possible_vertexs.add((nr, nc))
-                    q.append((nr, nc))
-
-bfs()
-print(len(possible_vertexs))
+            if can_go(nr, nc):
+                visited[nr][nc] = True
+                q.append((nr, nc))
+                temp.append((nr, nc))
 
 
+    return temp
+order = 1
+for r in range(n):
+    for c in range(n):
+        if grid[r][c] == 0 and not visited[r][c]:
+            array = bfs(r, c)
+            cnt = len(array)
 
+            for row, col in array:
+                grid[row][col] = [order, cnt]
+            
+            order += 1
 
+checked_order = [False] * (order + 1)
+
+ans = 0
+for row, col in starts:
+    o, v = grid[row - 1][col - 1]
     
-    
+    if checked_order[o]:
+        continue
+    else:
+        ans += v
+        checked_order[o] = True
+
+print(ans)
