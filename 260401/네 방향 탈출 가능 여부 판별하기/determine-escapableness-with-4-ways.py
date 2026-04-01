@@ -24,7 +24,7 @@ while q:
             q.append((nr, nc))
             visited[nr][nc] = True
 
-if visited[n-1][n-1]:
+if visited[n-1][m-1]:
     print(1)
 else:
     print(0)
