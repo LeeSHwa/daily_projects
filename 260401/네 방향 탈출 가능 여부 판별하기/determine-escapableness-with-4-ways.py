@@ -15,6 +15,10 @@ visited[0][0] = True
 
 while q:
     row, col = q.popleft()
+    
+    if visited[n-1][m-1]:
+        print(1)
+        exit()
 
     for dr, dc in dirs:
         nr = row + dr
@@ -24,7 +28,4 @@ while q:
             q.append((nr, nc))
             visited[nr][nc] = True
 
-if visited[n-1][m-1]:
-    print(1)
-else:
-    print(0)
+print(0)
