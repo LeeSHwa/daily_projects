@@ -40,6 +40,8 @@ def bfs():
         c -= 1
 
         q.append((r, c))
+        visited[r][c] = True
+        possible_vertexs.add((r, c))
         
         while q:
             row, col = q.popleft()
