@@ -39,6 +39,7 @@ def bfs():
                 cnt += 1
                 visited[nr][nc] = True
     
+
     return cnt
     
 
@@ -62,6 +63,8 @@ def backtrack(idx, depth):
 
     grid[r][c] = 1
 
+    backtrack(idx + 1, depth)
+    
 backtrack(0, 0)
 
 print(ans)
