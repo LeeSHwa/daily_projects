@@ -9,6 +9,10 @@ r, c = map(int, input().split())
 r -= 1
 c -= 1
 
+if n == 1:
+    print(1, 1)
+    exit()
+
 def bfs(row, col, val):
     array = [0]
     q = deque()
