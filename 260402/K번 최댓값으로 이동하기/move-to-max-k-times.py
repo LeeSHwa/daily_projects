@@ -11,10 +11,6 @@ c -= 1
 
 flag = True
 
-if n == 1:
-    print(1, 1)
-    exit()
-
 def bfs(row, col, val):
     global flag
 
