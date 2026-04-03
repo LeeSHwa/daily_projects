@@ -7,22 +7,21 @@ from collections import deque
 n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-def bfs():
+def bfs(shell):
     to_melt = []
     dirs = [(0, 1), (1, 0), (-1, 0), (0, -1)]
     q = deque()
-    q.append((0, 0))
+    q.append((cnt, cnt))
     visited = [[False] * m for _ in range(n)]
 
     while q:
         row, col = q.popleft()
-        visited[row][col] = True
         
         for dr, dc in dirs:
             nr = row + dr
             nc = col + dc
 
-            if 0 <= nr < n and 0 <= nc < m and not visited[nr][nc]:
+            if shell <= nr < n - shell and shell <= nc < m - shell and not visited[nr][nc]:
                 if grid[nr][nc] == 1:
                     to_melt.append((nr, nc))
                 
@@ -37,7 +36,7 @@ last = -1
 cnt = 0
 
 while True:
-    array = bfs()
+    array = bfs(cnt)
     
     if len(array) == 0:
         print(cnt, last)
