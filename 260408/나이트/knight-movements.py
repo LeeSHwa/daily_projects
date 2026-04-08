@@ -28,10 +28,13 @@ def bfs():
                 visited[nr][nc] = True
                 q.append((nr, nc))
             
-            if grid[r2][c2]:
-                return grid[r2][c2]
+        if grid[r2][c2]:
+            return grid[r2][c2]
     
-    return -1
+    if not visited[r2][c2]:
+        return -1
+    else:
+        return 0
 
 
 print(bfs())
